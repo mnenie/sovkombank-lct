@@ -54,3 +54,12 @@ header {
     background: var(--border-color);
   }
 }
+.burger{
+  width: 2rem;
+  height: 2rem;
+}
+@media screen and (max-width: 650px){
+  header{
+    padding: 0.8rem 0;
+  }
+}

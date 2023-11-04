@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 // import { NavLink } from 'react-router-dom';
 import styles from "./footer.module.scss";
+import FooterMobile from "./FooterMobile";
 
 const Footer = () => {
   const items1 = [
@@ -17,9 +18,27 @@ const Footer = () => {
       title: "Для звонков по России (бесплатно)",
     },
   ];
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
+  const isMobile = windowWidth <= 650;
   return (
     <footer className={styles.footer}>
       <div className="container">
+        {isMobile ? (
+          <FooterMobile />
+        ) : (
         <div className={styles.blocks_footer}>
           <div className={styles.blocks_footer_1}>
             {items1.map((item) => (
@@ -44,6 +63,7 @@ const Footer = () => {
             </div>
           </a>
         </div>
+        )}
       </div>
     </footer>
   );

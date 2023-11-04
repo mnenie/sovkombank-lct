@@ -1,11 +1,30 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import { HOME_ROUTE, AUTH_ROUTE } from "@/utils/consts";
 import styles from "./header.module.scss";
+import HeaderMobile from "./HeaderMobile";
 const Header = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
+  const isMobile = windowWidth <= 650;
+
   return (
     <header>
       <div className="container">
+        {isMobile ? (
+          <HeaderMobile />
+        ) : (
         <div className={styles.header_blocks}>
           <div className={styles.logo_header}>
             <NavLink className={styles.img_header} to={HOME_ROUTE}>
@@ -24,6 +43,7 @@ const Header = () => {
             </NavLink>
           </div>
         </div>
+        )}
       </div>
     </header>
   );

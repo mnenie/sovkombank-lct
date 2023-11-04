@@ -1,5 +1,5 @@
 .auth{
-  padding-top: 80px;
+  padding-top: 60px;
   display: block;
   margin: 0 auto;
   max-width: 600px;
@@ -30,4 +30,8 @@
     //   }
     // }
   }
+}
+.error{
+  color: var(--red-color);
+  margin-top: 10px;
 }
