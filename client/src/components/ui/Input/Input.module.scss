@@ -1,0 +1,17 @@
+.input {
+  display: block;
+  width: 100%;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  color: #484848;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  border: 1px solid #f8f9fa;
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  font-size: 16px;
+  &::placeholder {
+    color: var(--opacity-text);
+  }
+}

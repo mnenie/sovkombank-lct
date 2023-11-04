@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { REGISTRATION_ROUTE, HOME_ROUTE } from "@/utils/consts";
+import { HOME_ROUTE, AUTH_ROUTE } from "@/utils/consts";
 import styles from "./header.module.scss";
 const Header = () => {
   return (
@@ -18,11 +18,7 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.auth_header}>
-            <NavLink className={styles.link_header} to={REGISTRATION_ROUTE}>
-              Зарегистрироваться
-            </NavLink>
-            <div className={styles.auth_header_line}></div>
-            <NavLink className={styles.link_header} to={REGISTRATION_ROUTE}>
+            <NavLink className={styles.link_header} to={AUTH_ROUTE}>
               Войти
               <img src="/icons/entry.svg" alt="" />
             </NavLink>
