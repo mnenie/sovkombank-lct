@@ -11,16 +11,9 @@ const HeaderMobile = () => {
           <img style={{ width: "9rem" }} src="/icons/logo.svg" alt="" />
         </NavLink>
       </div>
-      <img className={styles.burger} src="/icons/burger.svg" alt="" />
+      {/* <img className={styles.burger} src="/icons/burger.svg" alt="" /> */}
     </div>
   );
 };
 
-{
-  /* <div className={styles.text_header}>
-          <span>Сотрудникам банка</span>
-          <div className={styles.auth_header_line}></div>
-          <a href="tel: +78001000006">8 800 100 0006</a>
-        </div> */
-}
 export default HeaderMobile;

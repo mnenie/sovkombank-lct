@@ -3,6 +3,7 @@
   display: block;
   margin: 0 auto;
   max-width: 600px;
+  padding-bottom: 80px;
   .auth_block{
     width: 100%;
     box-shadow: 0 2px 15px 0 rgba(52,82,112,.09);
@@ -34,4 +35,10 @@
 .error{
   color: var(--red-color);
   margin-top: 10px;
+}
+
+@media screen and (max-width: 650px){
+  .auth{
+    padding-top: 100px;
+  }
 }
