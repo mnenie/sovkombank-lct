@@ -1,5 +1,4 @@
-import { ACCOUNT_ROUTE, AUTH_ROUTE, HOME_ROUTE, TASK_ROUTE, TABLE_ROUTE} from "../utils/consts";
-import Account from "../views/Account";
+import { AUTH_ROUTE, HOME_ROUTE, TASK_ROUTE, TABLE_ROUTE} from "../utils/consts";
 import Auth from "../views/Auth/Auth";
 import Home from "../views/Home/Home";
 import NotFound from "../views/NotFound";
