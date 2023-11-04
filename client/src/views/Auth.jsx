@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Auth = () => {
   return (
     <div>
-      auth
+      <div className="container"></div>
     </div>
   );
 };

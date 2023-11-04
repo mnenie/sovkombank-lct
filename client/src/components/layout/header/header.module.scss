@@ -1,6 +1,8 @@
 header {
-  padding: 1.25rem 0;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 40px 0 rgba(65,70,76,.07);
+  background: var(--white-color);
   .header_blocks {
     display: flex;
     justify-content: space-between;

@@ -7,9 +7,11 @@ import Footer from "@/components/layout/footer/Footer";
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <AppRouter />
-      <Footer />
+      <div className="app-container">
+        <Header />
+        <AppRouter />
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 };

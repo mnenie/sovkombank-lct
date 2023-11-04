@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { REGISTRATION_ROUTE, HOME_ROUTE } from "@/utils/consts";
-import styles from './header.module.scss'
+import styles from "./header.module.scss";
 const Header = () => {
   return (
-    <div className="container">
-      <header>
+    <header>
+      <div className="container">
         <div className={styles.header_blocks}>
           <div className={styles.logo_header}>
             <NavLink className={styles.img_header} to={HOME_ROUTE}>
@@ -18,7 +18,9 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.auth_header}>
-            <NavLink className={styles.link_header} to={REGISTRATION_ROUTE}>Зарегистрироваться</NavLink>
+            <NavLink className={styles.link_header} to={REGISTRATION_ROUTE}>
+              Зарегистрироваться
+            </NavLink>
             <div className={styles.auth_header_line}></div>
             <NavLink className={styles.link_header} to={REGISTRATION_ROUTE}>
               Войти
@@ -26,8 +28,8 @@ const Header = () => {
             </NavLink>
           </div>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 
