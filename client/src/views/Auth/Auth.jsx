@@ -2,8 +2,19 @@ import React, { useContext, useState } from "react";
 import Input from "@/components/ui/Input/Input";
 import Button from "@/components/ui/Button/Button";
 import styles from './auth.module.scss'
+import {Context} from '@/main'
+import { observer } from 'mobx-react-lite';
+import { useForm } from "react-hook-form"
 
-const Auth = () => {
+
+const Auth = observer(() => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+  const {user} = useContext(Context)
   const [val1, setVal1] = useState("");
   const [val2, setVal2] = useState("");
   const inputs = [
@@ -13,6 +24,7 @@ const Auth = () => {
       type: "text",
       value: val1,
       onChange: setVal1,
+      
     },
     {
       id: 2,
@@ -22,6 +34,11 @@ const Auth = () => {
       onChange: setVal2,
     },
   ];
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data))
+  }
+
+  console.log(watch("example"))
   return (
     <div className={styles.auth}>
       <div className="container">
@@ -38,14 +55,15 @@ const Auth = () => {
                 value={input.value}
                 onChange={input.onChange}
                 key={input.id}
+                {...register({title})}
               />
             ))}
           </div>
-          <Button>Войти</Button>
+          <Button onClick={handleSubmit(onSubmit)}>Войти</Button>
         </div>
       </div>
     </div>
   );
-};
+});
 
 export default Auth;
