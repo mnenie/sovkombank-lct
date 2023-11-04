@@ -1,30 +1,12 @@
 import styles from './table.module.scss';
 import Row from '../../components/ui/Row/Row';
 
-const WorkersTable = () => {
+const DoneTasks = () => {
   
-    const workers = [
+    const tasks = [
         {
-            id : 1,
-            name : 'Ivan Ivanov',
-            login : 'fdmkalsv',
-            grade : 'Middle',
-        },{
-            id : 1,
-            name : 'Ivan Molchanov',
-            login : 'bibz',
-            grade : 'senior',
-        },{
-            id : 1,
-            name : 'Ivan',
-            login : 'fdmkalsv',
-            grade : 'Middle',
-        },{
-            id : 1,
-            name : 'Ivan',
-            login : 'fdmkalsv',
-            grade : 'Middle',
-        },
+
+        }
     ]
 
     return (
@@ -56,4 +38,4 @@ const WorkersTable = () => {
   );
 };
 
-export default WorkersTable;
+export default DoneTasks;

@@ -1,4 +1,4 @@
-import { YMaps, Map, Placemark, RouteEditor,GeoObject } from '@pbe/react-yandex-maps';
+// import { YMaps, Map, Placemark, RouteEditor,GeoObject } from '@pbe/react-yandex-maps';
 import styles from './home.module.scss'
 import HomeTasks from '@/components/HomeTasks/HomeTasks';
 
