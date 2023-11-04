@@ -23,10 +23,6 @@ export const authRoutes = [
     Component: Home
   },
   {
-    path: ACCOUNT_ROUTE,
-    Componet: Account
-  },
-  {
     path: TASK_ROUTE,
     Component : TaskForm
   },

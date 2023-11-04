@@ -1,5 +1,5 @@
 import { stack as Menu } from "react-burger-menu";
-import React, { useState } from "react";
+import { useState } from "react";
 import "./style.scss";
 import { NavLink } from "react-router-dom";
 import { AUTH_ROUTE } from "@/utils/consts";

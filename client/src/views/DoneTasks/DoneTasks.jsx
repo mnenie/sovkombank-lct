@@ -1,13 +1,9 @@
 import styles from './table.module.scss';
-import Row from '../../components/ui/Row/Row';
+// import Row from '../../components/ui/Row/Row';
 
 const DoneTasks = () => {
   
-    const tasks = [
-        {
-
-        }
-    ]
+   
 
     return (
     <div className={styles.form}>
@@ -25,9 +21,7 @@ const DoneTasks = () => {
         </thead>
         <tbody>
             {
-                workers.map(worker => (
-                    <Row data={worker} key={Math.random()}/>
-                ))
+               
             }
         </tbody>            
           </table>
