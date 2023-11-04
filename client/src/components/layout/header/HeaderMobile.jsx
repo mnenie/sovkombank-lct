@@ -1,8 +1,6 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { HOME_ROUTE } from "@/utils/consts";
 import styles from "./header.module.scss";
-import Offcanvas from "@/components/ui/Offcanvas/Offcanvas";
 const HeaderMobile = () => {
   return (
     <div className={styles.header_blocks}>

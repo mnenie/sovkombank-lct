@@ -1,6 +1,6 @@
 import styles from './row.module.scss'
-import Button from '../Button/Button';
 
+// eslint-disable-next-line react/prop-types
 const Row = ({data}) => {
     return (
         <tr className={styles.tr}>

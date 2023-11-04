@@ -1,5 +1,4 @@
 import styles from './table.module.scss';
-import Button from '../../components/ui/Button/Button';
 import Row from '../../components/ui/Row/Row'
 const WorkersTable = () => {
   
