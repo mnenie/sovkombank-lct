@@ -14,7 +14,8 @@ const Auth = observer(() => {
     watch,
     formState: { errors },
   } = useForm()
-  const {user} = useContext(Context)
+
+  // const {user} = useContext(Context)
   const [val1, setVal1] = useState("");
   const [val2, setVal2] = useState("");
   const inputs = [
@@ -24,7 +25,7 @@ const Auth = observer(() => {
       type: "text",
       value: val1,
       onChange: setVal1,
-      
+      title : "firstName"
     },
     {
       id: 2,
@@ -32,6 +33,7 @@ const Auth = observer(() => {
       type: "password",
       value: val2,
       onChange: setVal2,
+      title : "password"
     },
   ];
   const onSubmit = (data) => {
@@ -55,7 +57,7 @@ const Auth = observer(() => {
                 value={input.value}
                 onChange={input.onChange}
                 key={input.id}
-                {...register({title})}
+                register={register(input.title)}
               />
             ))}
           </div>
