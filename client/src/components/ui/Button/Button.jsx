@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./Button.module.scss";
-const Button = ({ children, onClick }) => {
+import style from "./Button.module.scss";
+const Button = ({ styles, children, onClick }) => {
   return (
-    <button className={styles.btn} onClick={onClick}>
+    <button className={style.btn} styles={styles} onClick={onClick}>
       {children}
     </button>
   );

@@ -2,7 +2,7 @@
     padding-top: 80px;
     display: block;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 100%;
     .form_block{
       width: 100%;
       box-shadow: 0 2px 15px 0 rgba(52,82,112,.09);
@@ -23,3 +23,10 @@
     
     }
   }
+
+.workers_table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+  }
+  
