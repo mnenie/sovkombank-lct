@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import Input from "@/components/ui/Input/Input";
 import Button from "@/components/ui/Button/Button";
 import styles from './auth.module.scss'
