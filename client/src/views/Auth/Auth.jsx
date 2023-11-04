@@ -2,7 +2,6 @@ import { useState } from "react";
 import Input from "@/components/ui/Input/Input";
 import Button from "@/components/ui/Button/Button";
 import styles from './auth.module.scss'
-import {Context} from '@/main'
 import { observer } from 'mobx-react-lite';
 import { useForm } from "react-hook-form"
 
@@ -46,9 +45,6 @@ const Auth = observer(() => {
       <div className="container">
         <div className={styles.auth_block}>
           <h1>Добро пожаловать!</h1>
-          {/* <div className={styles.links}>
-            <a href="">Войти в банк</a>
-          </div> */}
           <div className={styles.inputs}>
             {inputs.map((input) => (
               <Input
