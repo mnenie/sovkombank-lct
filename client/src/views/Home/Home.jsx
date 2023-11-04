@@ -1,9 +1,14 @@
 import { YMaps, Map, Placemark, RouteEditor,GeoObject } from '@pbe/react-yandex-maps';
+import styles from './home.module.scss'
+import HomeTasks from '@/components/HomeTasks/HomeTasks';
 
 const Home = () => {
   return (
-    <div>
-      <YMaps>
+    <div className={styles.home}>
+      <div className="container">
+        <HomeTasks />
+      </div>
+      {/* <YMaps>
       <Map
         defaultState={{
           center: [55.751574, 37.573856],
@@ -29,7 +34,7 @@ const Home = () => {
       }}
     />
       </Map>  
-      </YMaps>
+      </YMaps> */}
     </div>
   );
 };

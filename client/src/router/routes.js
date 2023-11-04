@@ -1,7 +1,7 @@
 import { ACCOUNT_ROUTE, AUTH_ROUTE, HOME_ROUTE} from "../utils/consts";
 import Account from "../views/Account";
 import Auth from "../views/Auth/Auth";
-import Home from "../views/Home";
+import Home from "../views/Home/Home";
 import NotFound from "../views/NotFound";
 
 export const publicRoutes = [

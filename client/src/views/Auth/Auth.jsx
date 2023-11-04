@@ -1,19 +1,19 @@
 import { useState } from "react";
 import Input from "@/components/ui/Input/Input";
 import Button from "@/components/ui/Button/Button";
-import styles from './auth.module.scss'
-import {Context} from '@/main'
-import { observer } from 'mobx-react-lite';
-import { useForm } from "react-hook-form"
-
+import styles from "./auth.module.scss";
+import { Context } from "@/main";
+import { observer } from "mobx-react-lite";
+import { useForm } from "react-hook-form";
 
 const Auth = observer(() => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm()
+  } = useForm({
+    mode: 'onBlur'
+  });
 
   // const {user} = useContext(Context)
   const [val1, setVal1] = useState("");
@@ -25,7 +25,8 @@ const Auth = observer(() => {
       type: "text",
       value: val1,
       onChange: setVal1,
-      title : "firstName"
+      title: "login",
+      label: 'Логин'
     },
     {
       id: 2,
@@ -33,32 +34,41 @@ const Auth = observer(() => {
       type: "password",
       value: val2,
       onChange: setVal2,
-      title : "password"
+      title: "password",
+      label: 'Пароль'
     },
   ];
   const onSubmit = (data) => {
-    alert(JSON.stringify(data))
-  }
-
-  console.log(watch("example"))
+    console.log(data)
+  };
   return (
     <div className={styles.auth}>
       <div className="container">
         <div className={styles.auth_block}>
           <h1>Добро пожаловать!</h1>
-          {/* <div className={styles.links}>
-            <a href="">Войти в банк</a>
-          </div> */}
           <div className={styles.inputs}>
             {inputs.map((input) => (
-              <Input
-                type={input.type}
-                placeholder={input.placeholder}
-                value={input.value}
-                onChange={input.onChange}
-                key={input.id}
-                register={register(input.title)}
-              />
+              <div key={input.id}>
+                <Input
+                label={input.label}
+                  type={input.type}
+                  placeholder={input.placeholder}
+                  value={input.value}
+                  onChange={input.onChange}
+                  register={register(input.title, {
+                    required: 'Обязательное поле',
+                    ...(input.title === 'password' && {
+                      minLength: {
+                        value: 8,
+                        message: 'Пароль должен иметь не менее 8 символов!',
+                      },
+                    }),
+                  })}
+                />
+                <div className={styles.error}>
+                  {errors[input.title] && <p>* {errors[input.title].message || "Ошибка!"}</p>}
+                </div>
+              </div>
             ))}
           </div>
           <Button onClick={handleSubmit(onSubmit)}>Войти</Button>
