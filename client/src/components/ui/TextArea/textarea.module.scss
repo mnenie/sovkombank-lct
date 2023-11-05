@@ -15,6 +15,7 @@
   &::placeholder {
     color: var(--opacity-text);
   }
+  resize: none !important;
 }
 @media screen and (max-width: 992px) {
   .textarea {
