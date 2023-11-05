@@ -25,3 +25,14 @@
     color: var(--main-color)
   }
 }
+
+@media screen and (max-width: 992px) {
+  .input_form{
+    .input{
+      font-size: 14px;
+      &::placeholder{
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -46,6 +46,7 @@
   .bm-menu {
     background: var(--white-color);
     padding: 38px 0 ;
+    overflow: hidden !important;
   }
   
   /* Morph shape necessary with bubble or elastic */

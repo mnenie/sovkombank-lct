@@ -6,12 +6,12 @@ const WorkersTable = () => {
     const workers = [
         {
             id : 1,
-            name : 'Ivan Ivanov',
+            name : 'Ivan',
             login : 'fdmkalsv',
             grade : 'Middle',
         },{
             id : 1,
-            name : 'Ivan Molchanov',
+            name : 'Ivan',
             login : 'bibz',
             grade : 'senior',
         },{

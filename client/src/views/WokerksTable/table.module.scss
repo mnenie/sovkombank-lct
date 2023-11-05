@@ -1,32 +1,29 @@
-.form{
-    padding-top: 80px;
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    .form_block{
-      width: 100%;
-      box-shadow: 0 2px 15px 0 rgba(52,82,112,.09);
-      border-radius: 5px;
-      padding: 40px;
-      margin-bottom: 80px;
-      & h1{
-        margin: 0;
-        font-size: 32px;
-        margin-bottom: 40px;
-      }
-      .inputs{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-bottom: 30px;
-      }
-    
+.form {
+  padding-top: 80px;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  .form_block {
+    width: 100%;
+    box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.09);
+    border-radius: 5px;
+    padding: 40px;
+    margin-bottom: 80px;
+    & h1 {
+      margin: 0;
+      margin-bottom: 40px;
+    }
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 30px;
     }
   }
+}
 
 .workers_table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; 
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
