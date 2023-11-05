@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from './checkbox.module.scss'
-const Checkbox = () => {
-  const [checked, setChecked] = useState(true);
+const Checkbox = ({checked, setChecked}) => {
   return (
     <div className={styles.checkbox}>
       <input

@@ -23,38 +23,72 @@
       & p {
         color: var(--blue-color);
       }
-      .state {
+      .route {
         display: flex;
+        gap: 6px;
         align-items: center;
-        gap: 20px;
-        .checkbox_items{
-          display: flex;
-          gap: 6px;
-          align-items: center;
-        }
-        .route {
-          display: flex;
-          gap: 6px;
-          align-items: center;
-          cursor: pointer;
-          & span {
-            color: var(--blue-color);
-          }
+        cursor: pointer;
+        & span {
+          color: var(--blue-color);
         }
       }
     }
-    .sub_task {
+  }
+}
+
+@keyframes fade-in{
+  0%{
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-out{
+  0%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100%{
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+.sub_task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.05);
+  border-radius: 5px;
+  &.sub_task-enter-active{
+    animation: fade-in 500ms forwards;
+  }
+  &.sub_task-exit-active {
+    animation: fade-out 500ms forwards;
+  }
+  & span {
+    &:last-child {
+      color: var(--opacity-text);
+    }
+  }
+
+  .state {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    & span {
+      color: var(--opacity-text);
+    }
+
+    .checkbox_items {
       display: flex;
-      justify-content: space-between;
+      gap: 6px;
       align-items: center;
-      padding: 20px 40px;
-      box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.05);
-      border-radius: 5px;
-      & span {
-        &:last-child {
-          color: var(--opacity-text);
-        }
-      }
     }
   }
 }
