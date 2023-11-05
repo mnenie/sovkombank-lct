@@ -2,7 +2,7 @@ import styles from "./HomeTasks.module.scss";
 import SubTask from "../SubTask/SubTAsk";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-const HomeTasks = ({ tasks, itemsMap, deleteTask }) => {
+const HomeTasks = ({ tasks, deleteTask }) => {
   return (
     <div className={styles.tasks}>
       {tasks.map((item) => (
@@ -13,9 +13,15 @@ const HomeTasks = ({ tasks, itemsMap, deleteTask }) => {
               <span>Построить маршрут</span>
             </div>
           </div>
-          <TransitionGroup>
+          <TransitionGroup component={styles.task}>
             {item.subtasks.map((task) => (
-              <SubTask key={task.id} task={task} mainTaskId={item.id} deleteTask={deleteTask} />
+              <CSSTransition key={task.id} classNames="sub_task" timeout={500}>
+                <SubTask
+                  task={task}
+                  mainTaskId={item.id}
+                  deleteTask={deleteTask}
+                />
+              </CSSTransition>
             ))}
           </TransitionGroup>
         </div>

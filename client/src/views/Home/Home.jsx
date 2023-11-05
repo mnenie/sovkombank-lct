@@ -54,8 +54,7 @@ const Home = () => {
         break;
       }
     }
-   
-    setTasks(newTasks);
+    setTasks([...newTasks]);
   };
 
   return (
