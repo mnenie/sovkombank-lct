@@ -1,0 +1,37 @@
+@import "./fonts.scss";
+@import "./colors.scss";
+@import "./consts.scss";
+@import "./media.scss";
+.app-container{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+}
+
+// .sub_task-exit-active{
+//   animation: fade-in 500ms forwards;
+// }
+.sub_task-enter-active{
+  animation: fade-out 500ms forwards;
+}
