@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 const HomeTasks = ({ tasks, itemsMap, deleteTask }) => {
   return (
     <div className={styles.tasks}>
-      {itemsMap.map((item) => (
+      {tasks.map((item) => (
         <div key={item.id} className={styles.task}>
           <div className={styles.text}>
             <h3>{item.title}</h3>
@@ -14,8 +14,8 @@ const HomeTasks = ({ tasks, itemsMap, deleteTask }) => {
             </div>
           </div>
           <TransitionGroup>
-            {tasks.map((task) => (
-              <SubTask key={task.id} task={task} deleteTask={deleteTask} />
+            {item.subtasks.map((task) => (
+              <SubTask key={task.id} task={task} mainTaskId={item.id} deleteTask={deleteTask} />
             ))}
           </TransitionGroup>
         </div>

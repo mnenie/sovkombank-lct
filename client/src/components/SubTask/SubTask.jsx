@@ -3,11 +3,11 @@ import Checkbox from "../ui/Checkbox/Checkbox";
 import styles from "./subtask.module.scss";
 // import { v4 as uuidv4 } from "uuid";
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
-const SubTask = ({ task, deleteTask }) => {
+const SubTask = ({ task, deleteTask, mainTaskId }) => {
   const [checked, setChecked] = useState(false);
   const change = () => {
     setChecked(!checked);
-    deleteTask(task.id);
+    deleteTask(mainTaskId, task.id);
   };
   return (
     <div key={task.id} className={styles.sub_task}>
