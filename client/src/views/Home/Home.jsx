@@ -2,76 +2,60 @@ import styles from "./home.module.scss";
 import HomeTasks from "@/components/HomeTasks/HomeTasks";
 import MapBlock from "@/components/Map/MapBlock";
 import { useState } from "react";
-
+import {cloneDeep} from "lodash"
 const Home = () => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Флаеры",
-      about: "Доставка карт и материалов",
-    },
-    {
-      id: 2,
-      title: "Молч",
-      about: "Обучение агента",
-      // checked: false
-    },
-    {
-      id: 3,
-      title: "Дебетовая карта",
-      about: "Выезд на точку для стимулирования выдач",
-    },
-  ]);
-
-  const itemsMap = [
+  const [tasks, setTasks] = useState( [
     {
       id: 1,
       title: "ВТБ на Ленинградке",
-      tasks: [
-        {
-          id: 1,
-          title: "Флаеры",
-          about: "Доставка карт и материалов",
-        },
-        {
-          id: 2,
-          title: "Молч",
-          about: "Обучение агента",
-          // checked: false
-        },
-        {
-          id: 3,
-          title: "Дебетовая карта",
-          about: "Выезд на точку для стимулирования выдач",
-        },
-      ]
+      subtasks: [{
+        id: 1,
+        title: "Флаеры",
+        about: "Доставка карт и материалов",
+      },
+      {
+        id: 2,
+        title: "Молч",
+        about: "Обучение агента",
+      },
+      {
+        id: 3,
+        title: "Дебетовая карта",
+        about: "Выезд на точку для стимулирования выдач",
+      },]
     },
     {
       id: 2,
       title: "ВТБ на Краснодарке",
-      tasks: [
-        {
-          id: 1,
-          title: "Флаеры",
-          about: "Доставка карт и материалов",
-        },
-        {
-          id: 2,
-          title: "Молч",
-          about: "Обучение агента",
-          // checked: false
-        },
-        {
-          id: 3,
-          title: "Дебетовая карта",
-          about: "Выезд на точку для стимулирования выдач",
-        },
-      ]
+      subtasks: [{
+        id: 4,
+        title: "Флаеры",
+        about: "Доставка карт и материалов",
+      },
+      {
+        id: 5,
+        title: "Молч",
+        about: "Обучение агента",
+      },
+      {
+        id: 6,
+        title: "Дебетовая карта",
+        about: "Выезд на точку для стимулирования выдач",
+      },]
     },
-  ];
+  ]);
 
-  const deleteTask = (id) => {
-    setTasks((tasks) => tasks.filter((task) => task.id !== id));
+
+  const deleteTask = (taskId, subtaskId) => {
+    const newTasks = cloneDeep(tasks); 
+    for (let index = 0; index < newTasks.length; index++) {
+      if (newTasks[index].id === taskId) {
+        newTasks[index].subtasks = newTasks[index].subtasks.filter(subtask => subtask.id !== subtaskId); 
+        break;
+      }
+    }
+   
+    setTasks(newTasks);
   };
 
   return (
@@ -79,7 +63,7 @@ const Home = () => {
       <div className="container">
         <div className={styles.blocks}>
           <div className={styles.block_1}>
-            <HomeTasks tasks={tasks} itemsMap={itemsMap} deleteTask={deleteTask} />
+            <HomeTasks tasks={tasks} deleteTask={deleteTask} />
           </div>
           <MapBlock />
         </div>
