@@ -1,27 +1,10 @@
-import { useState } from "react";
 import styles from "./home.module.scss";
 import HomeTasks from "@/components/HomeTasks/HomeTasks";
 import MapBlock from "@/components/Map/MapBlock";
+import { useState } from "react";
+
 const Home = () => {
-  const itemsMap = [
-    {
-      id: 1,
-      title: "ВТБ на Ленинградке",
-    },
-    {
-      id: 2,
-      title: "ВТБ на Краснодарке",
-    },
-    {
-      id: 3,
-      title: "ВТБ на Московке",
-    },
-    {
-      id: 4,
-      title: "ВТБ на Хабаровске",
-    },
-  ];
-  const tasks = [
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       title: "Флаеры",
@@ -40,15 +23,31 @@ const Home = () => {
       about: "Выезд на точку для стимулирования выдач",
       // checked: false
     },
+  ]);
+
+  const itemsMap = [
+    {
+      id: 1,
+      title: "ВТБ на Ленинградке",
+      ...tasks
+    },
+    {
+      id: 2,
+      title: "ВТБ на Краснодарке",
+      ...tasks
+    },
   ];
-  const initialCheckedState = Object.fromEntries(tasks.map((task) => [task.id, false]));
-  const [checked, setChecked] = useState(initialCheckedState);
+
+  const deleteTask = (id) => {
+    setTasks((tasks) => tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <div className={styles.home}>
       <div className="container">
         <div className={styles.blocks}>
           <div className={styles.block_1}>
-            <HomeTasks tasks={tasks} itemsMap={itemsMap} checked={checked} setChecked={setChecked} />
+            <HomeTasks tasks={tasks} itemsMap={itemsMap} deleteTask={deleteTask} />
           </div>
           <MapBlock />
         </div>

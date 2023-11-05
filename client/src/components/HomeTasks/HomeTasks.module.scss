@@ -36,33 +36,3 @@
   }
 }
 
-
-.sub_task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.05);
-  border-radius: 5px;
-  & span {
-    &:last-child {
-      color: var(--opacity-text);
-    }
-  }
-
-  .state {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    & span {
-      color: var(--opacity-text);
-    }
-
-    .checkbox_items {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-  }
-}
