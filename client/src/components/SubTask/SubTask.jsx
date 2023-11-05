@@ -8,6 +8,7 @@ const SubTask = ({ task, deleteTask }) => {
   const change = () => {
     setChecked(!checked);
     deleteTask(task.id);
+    console.log(task.id)
   };
   return (
     <div key={task.id} className={styles.sub_task}>
