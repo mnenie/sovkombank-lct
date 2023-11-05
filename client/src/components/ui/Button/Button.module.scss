@@ -8,6 +8,7 @@
   border: 1px solid var(--red-color);
   border-radius: 8px;
   font-size: 16px;
+  transition: 0.15s ease-in;
 }
 @media screen and (max-width: 992px) {
   .btn{

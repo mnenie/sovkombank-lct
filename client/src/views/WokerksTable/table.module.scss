@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    .blocks_1{
+    &_1{
       display: flex;
       align-items: stretch;
       gap: 20px;
@@ -19,6 +19,9 @@
     box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.09);
     border-radius: 5px;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     & h1 {
       margin: 0;
       margin-bottom: 40px;
@@ -59,10 +62,36 @@ label {
   display: flex;
 }
 
+.radio{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  & p{
+    margin-bottom: 10px;
+  }
+}
+.radios{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .select {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+@media screen and (max-width: 890px) {
+  .form{
+    .blocks{
+      &_1{
+        flex-direction: column;
+      }
+    }
+  }
 }
 @media screen and (max-width: 650px) {
   .form {
