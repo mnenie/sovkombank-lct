@@ -36,26 +36,6 @@
   }
 }
 
-@keyframes fade-in{
-  0%{
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100%{
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes fade-out{
-  0%{
-    opacity: 1;
-    transform: translateX(0px);
-  }
-  100%{
-    opacity: 0;
-    transform: translateX(100px);
-  }
-}
 
 .sub_task {
   display: flex;
@@ -64,12 +44,6 @@
   padding: 20px 40px;
   box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.05);
   border-radius: 5px;
-  &.sub_task-enter-active{
-    animation: fade-in 500ms forwards;
-  }
-  &.sub_task-exit-active {
-    animation: fade-out 500ms forwards;
-  }
   & span {
     &:last-child {
       color: var(--opacity-text);

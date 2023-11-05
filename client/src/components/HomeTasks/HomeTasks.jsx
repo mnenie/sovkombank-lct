@@ -11,20 +11,20 @@ const HomeTasks = ({ tasks, itemsMap, checked, setChecked }) => {
 
   return (
     <div className={styles.tasks}>
-      <TransitionGroup>
-        {itemsMap.map((item) => (
-          <div className={styles.task}>
-            <div className={styles.text}>
-              <h3>{item.title}</h3>
-              <div className={styles.route}>
-                <span>Построить маршрут</span>
-              </div>
+      {itemsMap.map((item) => (
+        <div className={styles.task}>
+          <div className={styles.text}>
+            <h3>{item.title}</h3>
+            <div className={styles.route}>
+              <span>Построить маршрут</span>
             </div>
+          </div>
+          <TransitionGroup component={styles.task}>
             {filteredTasks.map((task) => (
               <CSSTransition
-                key={task.id}
-                timeout={500}
-                classNames={styles.sub_task}
+                key={uuidv4()}
+                timeout={200}
+                classNames="sub_task"
               >
                 <div className={styles.sub_task}>
                   <span>{task.title}</span>
@@ -40,9 +40,9 @@ const HomeTasks = ({ tasks, itemsMap, checked, setChecked }) => {
                 </div>
               </CSSTransition>
             ))}
-          </div>
-        ))}
-      </TransitionGroup>
+          </TransitionGroup>
+        </div>
+      ))}
     </div>
   );
 };
