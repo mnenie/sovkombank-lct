@@ -1,3 +1,14 @@
 .home{
-  
+  padding-top: 60px;
+  padding-bottom: 80px;
+  .blocks{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 10px;
+    .block_1{
+      max-width: 600px;
+      width: 100%;
+    }
+  }
 }
