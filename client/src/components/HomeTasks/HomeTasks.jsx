@@ -1,5 +1,5 @@
 import styles from "./HomeTasks.module.scss";
-import SubTask from "../SubTask/SubTAsk";
+import SubTask from "../SubTask/SubTask";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const HomeTasks = ({ tasks, deleteTask }) => {
@@ -14,15 +14,38 @@ const HomeTasks = ({ tasks, deleteTask }) => {
             </div>
           </div>
           <TransitionGroup component={styles.task}>
-            {item.subtasks.map((task) => (
-              <CSSTransition key={task.id} classNames="sub_task" timeout={500}>
-                <SubTask
-                  task={task}
-                  mainTaskId={item.id}
-                  deleteTask={deleteTask}
-                />
+            {item.subtasks.length === 0 ? (
+              <CSSTransition
+                classNames={{
+                  enter: styles.errorEnter,
+                  enterActive: styles.errorEnterActive,
+                  exit: styles.errorExit,
+                  exitActive: styles.errorExitActive,
+                }}
+                timeout={700}
+              >
+                <p className={styles.error}>Список пуст</p>
               </CSSTransition>
-            ))}
+            ) : (
+              item.subtasks.map((task) => (
+                <CSSTransition
+                  key={task.id}
+                  classNames={{
+                    enter: styles.subTaskEnter,
+                    enterActive: styles.subTaskEnterActive,
+                    exit: styles.subTaskExit,
+                    exitActive: styles.subTaskExitActive,
+                  }}
+                  timeout={400}
+                >
+                  <SubTask
+                    task={task}
+                    mainTaskId={item.id}
+                    deleteTask={deleteTask}
+                  />
+                </CSSTransition>
+              ))
+            )}
           </TransitionGroup>
         </div>
       ))}

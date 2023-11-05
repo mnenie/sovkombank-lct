@@ -43,8 +43,26 @@ const Home = () => {
         about: "Выезд на точку для стимулирования выдач",
       },]
     },
+    {
+      id: 3,
+      title: "ВТБ на Краснодарке",
+      subtasks: [{
+        id: 7,
+        title: "Флаеры",
+        about: "Доставка карт и материалов",
+      },
+      {
+        id: 8,
+        title: "Молч",
+        about: "Обучение агента",
+      },
+      {
+        id: 9,
+        title: "Дебетовая карта",
+        about: "Выезд на точку для стимулирования выдач",
+      },]
+    },
   ]);
-
 
   const deleteTask = (taskId, subtaskId) => {
     const newTasks = cloneDeep(tasks); 
@@ -56,7 +74,6 @@ const Home = () => {
     }
     setTasks([...newTasks]);
   };
-
   return (
     <div className={styles.home}>
       <div className="container">

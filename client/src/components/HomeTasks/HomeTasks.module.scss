@@ -35,4 +35,31 @@
     }
   }
 }
+.error{
+  color: var(--red-color);
+  padding: 20px 0;
+  text-align: center;
+}
+.errorEnter {
+  opacity: 0.01;
+}
 
+.errorEnterActive {
+  opacity: 1;
+  transition: opacity 700ms ease-in;
+}
+
+.errorExit {
+  opacity: 1;
+}
+
+.errorExitActive {
+  opacity: 0.01;
+  transition: opacity 700ms ease-in;
+}
+
+.subTaskExitActive {
+  opacity: 0.01;
+  transform: translateX(150px);
+  transition: opacity 350ms ease-in, transform 350ms ease-in;
+}

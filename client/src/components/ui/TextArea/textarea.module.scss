@@ -1,0 +1,26 @@
+.textarea {
+  display: block;
+  width: 100%;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  color: #484848;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  border: 1px solid var(--border-color);
+  background-color: var(--white-color);
+  padding: 15px 20px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif !important;
+  &::placeholder {
+    color: var(--opacity-text);
+  }
+}
+@media screen and (max-width: 992px) {
+  .textarea {
+    font-size: 14px;
+    &::placeholder {
+      font-size: 14px;
+    }
+  }
+}

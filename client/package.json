@@ -21,6 +21,7 @@
     "react-hook-form": "^7.47.0",
     "react-router-dom": "^6.18.0",
     "react-select": "^5.7.7",
+    "react-textarea-autosize": "^8.5.3",
     "react-transition-group": "^4.4.5",
     "sass": "^1.69.5",
     "uuid": "^9.0.1"
