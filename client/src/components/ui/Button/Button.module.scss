@@ -8,6 +8,15 @@
   border: 1px solid var(--red-color);
   border-radius: 8px;
   font-size: 16px;
+
+  &:hover{
+    background-color: rgb(211, 62, 80);
+  }
+
+  &:focus{
+    background-color: rgb(190, 56, 72);
+  }
+
 }
 @media screen and (max-width: 992px) {
   .btn{
