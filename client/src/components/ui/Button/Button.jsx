@@ -1,9 +1,9 @@
 /* eslint-disable */
-import style from "./Button.module.scss";
+import styles from "./Button.module.scss";
 
-const Button = ({ styles, children, onClick }) => {
+const Button = ({ style, children, onClick }) => {
   return (
-    <button className={style.btn} styles={styles} onClick={onClick}>
+    <button className={styles.btn} style={style} onClick={onClick}>
       {children}
     </button>
   );

@@ -27,3 +27,17 @@
   border-collapse: collapse;
   table-layout: fixed;
 }
+label {
+  font-size: 14px;
+  color: var(--main-color)
+}
+
+.inputs{
+  display: flex;
+}
+
+.select{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

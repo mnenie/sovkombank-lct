@@ -27,7 +27,6 @@ const DoneTasks = () => {
           </table>
         </div>
       </div>
-     
     </div>
   );
 };

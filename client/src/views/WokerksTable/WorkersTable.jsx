@@ -1,6 +1,9 @@
 import styles from './table.module.scss';
 import Row from '../../components/ui/Row/Row';
-
+import Input from '../../components/ui/Input/Input';
+import {EMPLOYEE_GRADE} from '../../utils/consts';
+import Select from 'react-select';
+import Button from '../../components/ui/Button/Button';
 const WorkersTable = () => {
   
     const workers = [
@@ -27,10 +30,27 @@ const WorkersTable = () => {
         },
     ]
 
+    const gradeOptions = EMPLOYEE_GRADE.map(x => ({value:x, label: x}));
     return (
+    <>
     <div className={styles.form}>
       <div className="container">
-        <div className={styles.form_block}>
+        <div className={styles.form_block} >
+          <h1>Поиск</h1>
+          <div className={styles.inputs}>
+            <Input label={'Имя'} placeholder={"Введите имя"}/>
+            <Input label={'Логин'} placeholder={"Введите логин"}/>
+          </div>
+          <div className={styles.select}>
+            <label>Грейд</label>
+            <Select options={gradeOptions}/>
+          </div>
+          <Button style={{marginTop:'50px'}}>Фильтровать</Button>
+        </div>
+      </div>
+      <div className={styles.form}>
+      <div className="container">
+        <div className={styles.form_block} >
           <h1>Таблица работников</h1>
           <table className={styles.workers_table}>
           <thead>
@@ -53,6 +73,9 @@ const WorkersTable = () => {
       </div>
      
     </div>
+    </div>
+    </>
+    
   );
 };
 
