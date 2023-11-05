@@ -12,27 +12,48 @@
       min-height: 50px;
       height: 100%;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
       width: 100%;
-      border: 1px solid var(--border-color);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
       padding: 20px;
       box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.09);
-      border-radius: 5px;
-      & p{
+      // border-radius: 5px;
+      & p {
         color: var(--blue-color);
       }
+      .state {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .checkbox_items{
+          display: flex;
+          gap: 6px;
+          align-items: center;
+        }
+        .route {
+          display: flex;
+          gap: 6px;
+          align-items: center;
+          cursor: pointer;
+          & span {
+            color: var(--blue-color);
+          }
+        }
+      }
     }
-    .sub_task{
+    .sub_task {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
       box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.05);
       border-radius: 5px;
-      .route{
-        display: flex;
-        gap: 8px;
-        align-items: center;
+      & span {
+        &:last-child {
+          color: var(--opacity-text);
+        }
       }
     }
   }
