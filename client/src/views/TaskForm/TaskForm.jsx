@@ -1,7 +1,7 @@
 import styles from './taskform.module.scss';
 import React from 'react'; 
 import Button from '../../components/ui/Button/Button';
-import Select from 'react-select'
+import Select from 'react-select';
 import { EMPLOYEE_GRADE, TASK_CONDITION, TASK_NAMES, TASK_PRIORITY } from '../../utils/consts';
 const TaskForm = () => {
 

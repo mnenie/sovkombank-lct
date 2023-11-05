@@ -1,0 +1,47 @@
+.grow{
+    flex-grow: 1;
+}
+
+.py_24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    width: 100%;
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    text-align: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.mb_4 {
+    margin-bottom: 1rem;
+    font-size: 3.75rem;
+    line-height: 1;
+    font-weight: 700;
+    font-optical-sizing: auto;
+}
+
+.text404 {
+    --tw-text-opacity: 1;
+    font-size: 3.75rem;
+    line-height: 1;
+    color: rgb(15 58 140/var(--tw-text-opacity));
+    font-weight: 400;
+    display: block;
+}
+
+.not_found {
+    font-weight: 600;
+}
+
+.sub_text{
+    --tw-text-opacity: 1;
+    color: rgb(99 126 161/var(--tw-text-opacity));
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;    
+    line-height: 1.25rem;
+    
+}
