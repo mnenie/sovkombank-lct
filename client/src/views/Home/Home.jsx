@@ -5,6 +5,45 @@ import { useEffect, useState } from "react";
 import {cloneDeep} from "lodash"
 import TaskService from "../../services/TaskService";
 import ModalItem from "../../components/ui/ModalItem/ModalItem";
+
+const obj = {
+  "date": "1699282531",
+  "user-courier-info": {
+      "id": "1",
+      "name": "Дерягин Никита Владимирович"
+  },
+  "task": {
+      "id": "1",
+      "title": "Отвезти атрибутику по договору №123И",
+      "sub_task": [
+          {
+              "title": "Отвести буклеты 1",
+              "status": "0"
+          },
+          {
+              "title": "Отнести буклеты",
+              "status": "0"
+          },
+          {
+              "title": "Отнести буклеты",
+              "status": "0"
+          },
+          {
+              "title": "Отнести фирменную атрибутику компании",
+              "status": "0"
+          }
+      ]
+  },
+  "tolmut": {
+      "id": "1",
+      "name": "Выезд на точку для стимулирования выдач."
+  },
+  "address": {
+      "id": "14",
+      "path": "ул. Уральская, д. 79/1"
+  }
+}
+
 const Home = () => {
   const [tasks, setTasks] = useState( [
     {
@@ -87,7 +126,6 @@ const Home = () => {
         <div className={styles.blocks}>
           <div className={styles.block_1}>
             <HomeTasks tasks={tasks} deleteTask={deleteTask} />
-            <ModalItem />
           </div>
           <MapBlock />
         </div>

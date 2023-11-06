@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Modal from "react-modal";
-// import styles from './modal.module.scss'
 const customStyles = {
   content: {
     top: "40%",
@@ -9,18 +8,12 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -40%)",
-    // boxShadow: "0 2px 15px 0 rgba(52,82,112,.09)",
     borderRadius: "5px",
     padding: "40px",
   },
 };
-const ModalItem = () => {
+const ModalItem = ({isOpen,setIsOpen, children}) => {
   let subtitle;
-  const [isOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
 
   function afterOpenModal() {
     subtitle.style.color = "#f00";
@@ -30,8 +23,6 @@ const ModalItem = () => {
     setIsOpen(false);
   }
   return (
-    <div>
-      <button onClick={openModal}>Open Modal</button>
       <Modal
         isOpen={isOpen}
         onAfterOpen={afterOpenModal}
@@ -39,18 +30,8 @@ const ModalItem = () => {
         style={customStyles}
         contentLabel="Modal SubTask"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        {children}
       </Modal>
-    </div>
   );
 };
 
