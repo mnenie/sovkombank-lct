@@ -1,13 +1,13 @@
-import { AUTH_ROUTE, HOME_ROUTE, TASK_ROUTE, TABLE_ROUTE} from "../utils/consts";
+import {HOME_ROUTE, TASK_ROUTE, TABLE_ROUTE} from "../utils/consts";
 import Auth from "../views/Auth/Auth";
 import Home from "../views/Home/Home";
 import NotFound from "../views/NotFound/NotFound";
 import TaskForm from "../views/TaskForm/TaskForm";
 import WorkersTable from "../views/WokerksTable/WorkersTable";
 
-export const publicRoutes = [
+export const unAuthRoutes = [
   {
-    path: AUTH_ROUTE,
+    path: HOME_ROUTE,
     Component: Auth
   },
   {
@@ -16,17 +16,24 @@ export const publicRoutes = [
   }
 ]
 
-export const authRoutes = [
+export const courierRoutes = [
   {
     path: HOME_ROUTE,
     Component: Home
   },
   {
+    path: '*', 
+    Component: NotFound
+  }
+]
+
+export const managerRoutes = [
+  {
     path: TASK_ROUTE,
     Component : TaskForm
   },
   {
-    path: TABLE_ROUTE,
+    path: HOME_ROUTE,
     Component : WorkersTable
   },
   {

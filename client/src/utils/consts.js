@@ -1,5 +1,4 @@
-export const HOME_ROUTE = '/home';
-export const AUTH_ROUTE = '/';
+export const HOME_ROUTE = '/';
 export const ACCOUNT_ROUTE = '/account';
 export const TASK_ROUTE = '/task';
 export const TABLE_ROUTE = '/table';

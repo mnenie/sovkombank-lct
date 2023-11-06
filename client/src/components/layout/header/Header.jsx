@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { NavLink } from "react-router-dom";
-import { HOME_ROUTE, AUTH_ROUTE } from "@/utils/consts";
+import { HOME_ROUTE } from "@/utils/consts";
 import styles from "./header.module.scss";
 import HeaderMobile from "./HeaderMobile";
 const Header = () => {
@@ -37,7 +37,7 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.auth_header}>
-            <NavLink className={styles.link_header} to={AUTH_ROUTE}>
+            <NavLink className={styles.link_header} to={HOME_ROUTE}>
               Войти
               <img src="/icons/entry.svg" alt="" />
             </NavLink>

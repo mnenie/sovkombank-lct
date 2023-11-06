@@ -3,7 +3,7 @@ import UserService from '../services/UserService';
 
 export default class UserStore {
   constructor(){
-    this._isAuth = true;
+    this._isAuth = false;
     this._user= {};
     makeAutoObservable(this);
   }
@@ -26,8 +26,19 @@ export default class UserStore {
   async login(username, password){
     try{
       const resp = await UserService.login(username,password);
+      console.log(resp.data);
+      this.setUser(resp.data["personal-data-user"]);
+      this.setAuth(true);
+      localStorage.setItem('user',JSON.stringify(this.user));
+      localStorage.setItem('isAuth',this.isAuth);
+
     }catch(e){
       console.log(e)
     }
+  }
+
+  logout(){
+    localStorage.removeItem('user');
+    localStorage.removeItem('isAuth');
   }
 } 
