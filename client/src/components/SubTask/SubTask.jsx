@@ -8,7 +8,7 @@ const SubTask = ({ task, deleteTask, mainTaskId }) => {
   const [checked, setChecked] = useState(false);
   const change = () => {
     setChecked(!checked);
-    deleteTask(mainTaskId, task.id);
+    deleteTask(mainTaskId, task.title);
   };
   return (
     <>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from './checkbox.module.scss'
 const Checkbox = ({checked, setChecked}) => {
   return (
@@ -8,7 +7,6 @@ const Checkbox = ({checked, setChecked}) => {
         checked={checked}
         onChange={() => setChecked(!checked)}
       />
-      {/* <p>состояние: {checked ? "отмечен" : "не отмечен"}</p> */}
     </div>
   );
 };

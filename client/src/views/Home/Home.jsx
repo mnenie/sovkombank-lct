@@ -13,11 +13,12 @@ const Home = () => {
     TaskService.getUserTasks(user.id).then((tasks) => {setTasks(tasks)  });
   },[]);
 
-  const deleteTask = (taskId, subtaskId) => {
+  const deleteTask = (taskId, subtaskTitle) => {
     const newTasks = cloneDeep(tasks); 
     for (let index = 0; index < newTasks.length; index++) {
-      if (newTasks[index].id === taskId) {
-        newTasks[index].subtasks = newTasks[index].subtasks.filter(subtask => subtask.id !== subtaskId); 
+      if (newTasks[index].task.id === taskId) {
+        newTasks[index].task.sub_task = newTasks[index].task.sub_task.filter(subtask => subtask.title !== subtaskTitle); 
+        console.log(newTasks[index])
         break;
       }
     }

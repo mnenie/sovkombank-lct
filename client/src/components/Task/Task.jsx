@@ -30,7 +30,7 @@ const Task = ({ task, deleteTask }) => {
       ) : (
         task.task.sub_task.map((subtask, index) => (
           <SubTask
-            key={index}
+            key={Math.random()}
             task={subtask}
             mainTaskId={task.task.id}
             deleteTask={deleteTask}

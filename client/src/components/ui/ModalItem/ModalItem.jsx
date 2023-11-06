@@ -1,5 +1,5 @@
-import { useState } from "react";
 import Modal from "react-modal";
+
 const customStyles = {
   content: {
     top: "40%",
@@ -12,20 +12,16 @@ const customStyles = {
     padding: "40px",
   },
 };
+
 const ModalItem = ({isOpen,setIsOpen, children}) => {
-  let subtitle;
-
-  function afterOpenModal() {
-    subtitle.style.color = "#f00";
-  }
-
   function closeModal() {
     setIsOpen(false);
   }
+
   return (
       <Modal
+        ariaHideApp={false}
         isOpen={isOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Modal SubTask"
