@@ -20,8 +20,9 @@ const WorkersTable = () => {
   const [val2, setVal2] = useState("");
   const [value, setValue] = useState(0);
   const changeValue = (event) => {
-    setValue(event.target.value);
-    console.log(event.target.value);
+    const a = event.target.value
+    setValue(a);
+    console.log(a);
   };
   const inputs = [
     {
