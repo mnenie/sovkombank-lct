@@ -10,6 +10,8 @@ const HomeTasks = ({ tasks, deleteTask }) => {
           <div className={styles.text}>
             <h3>{item.title}</h3>
             <div className={styles.route}>
+              <img src="/icons/1.png" alt="" />
+              <div className={styles.line}></div>
               <span>Построить маршрут</span>
             </div>
           </div>

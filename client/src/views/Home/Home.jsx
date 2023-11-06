@@ -4,7 +4,7 @@ import MapBlock from "@/components/Map/MapBlock";
 import { useEffect, useState } from "react";
 import {cloneDeep} from "lodash"
 import TaskService from "../../services/TaskService";
-import ModalItem from "../../components/ui/ModalItem/ModalItem";
+// import ModalItem from "../../components/ui/ModalItem/ModalItem";
 
 const obj = {
   "date": "1699282531",
@@ -106,9 +106,9 @@ const Home = () => {
   ]);
   const user = JSON.parse(localStorage.getItem('user'));
 
-  useEffect(() => {
-    TaskService.getUserTasks(user.id).then((tasks) => {console.log(tasks);});
-  },[])
+  // useEffect(() => {
+  //   TaskService.getUserTasks(user.id).then((tasks) => {console.log(tasks);});
+  // },[])
 
   const deleteTask = (taskId, subtaskId) => {
     const newTasks = cloneDeep(tasks); 
