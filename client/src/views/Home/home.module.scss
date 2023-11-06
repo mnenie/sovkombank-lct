@@ -12,3 +12,18 @@
     }
   }
 }
+@media screen and (max-width: 1183px){
+  .home{
+    .blocks{
+      flex-direction: column;
+      .block_1{
+        max-width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px){
+  .home{
+    padding-top: 100px;
+  }
+}
