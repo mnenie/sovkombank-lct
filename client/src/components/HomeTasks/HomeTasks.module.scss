@@ -25,17 +25,27 @@
       }
       .route {
         display: flex;
-        gap: 6px;
+        gap: 10px;
         align-items: center;
-        cursor: pointer;
+        & img {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+        .line {
+          height: 1.25rem;
+          width: 2px;
+          background: var(--border-color);
+        }
         & span {
           color: var(--blue-color);
+          cursor: pointer;
         }
       }
     }
   }
 }
-.error{
+.error {
   color: var(--red-color);
   padding: 20px 0;
   text-align: center;

@@ -42,7 +42,7 @@ const Offcanvas = observer(() => {
         <div>
           <span style={{marginBottom: '10px'}}>{name}</span>
           <div onClick={changeAuth} style={{marginBottom: '25px', color: 'var(--blue-color)'}}>
-            <span>Выйти</span>
+            <span style={{cursor: 'pointer'}}>Выйти</span>
           </div>
         </div>
       ) : (
