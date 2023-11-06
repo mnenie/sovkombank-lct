@@ -1,8 +1,9 @@
 import styles from "./home.module.scss";
 import HomeTasks from "@/components/HomeTasks/HomeTasks";
 import MapBlock from "@/components/Map/MapBlock";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {cloneDeep} from "lodash"
+import TaskService from "../../services/TaskService";
 const Home = () => {
   const [tasks, setTasks] = useState( [
     {
@@ -63,6 +64,11 @@ const Home = () => {
       },]
     },
   ]);
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  useEffect(async () => {
+    await TaskService.getUserTasks(user.id);
+  },[])
 
   const deleteTask = (taskId, subtaskId) => {
     const newTasks = cloneDeep(tasks); 
