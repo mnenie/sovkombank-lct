@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styles from "./HomeTasks.module.scss";
 import SubTask from "../SubTask/SubTask";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -27,7 +28,7 @@ const HomeTasks = ({ tasks, deleteTask }) => {
                 <p className={styles.error}>Список пуст</p>
               </CSSTransition>
             ) : (
-              info.task.sub_task.map((subtask) => (
+             info.task.sub_task.map((subtask) => (
                 <CSSTransition
                   key={Math.random()}
                   classNames={{
@@ -39,11 +40,12 @@ const HomeTasks = ({ tasks, deleteTask }) => {
                   timeout={400}
                 >
                   <SubTask
+                  key={Math.random()}
                     task={subtask}
                     mainTaskId={info.task.id}
                     deleteTask={deleteTask}
                   />
-                </CSSTransition>
+                </CSSTransition> 
               ))
             )}
           </TransitionGroup>

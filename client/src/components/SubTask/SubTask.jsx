@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Checkbox from "../ui/Checkbox/Checkbox";
 import styles from "./subtask.module.scss";
