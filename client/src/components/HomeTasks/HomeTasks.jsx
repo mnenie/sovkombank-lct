@@ -5,16 +5,16 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 const HomeTasks = ({ tasks, deleteTask }) => {
   return (
     <div className={styles.tasks}>
-      {tasks.map((item) => (
-        <div key={item.id} className={styles.task}>
+      {tasks.map((info) => (
+        <div key={info.task.id} className={styles.task}>
           <div className={styles.text}>
-            <h3>{item.title}</h3>
+            <h3>{info.task.title}</h3>
             <div className={styles.route}>
               <span>Построить маршрут</span>
             </div>
           </div>
           <TransitionGroup component={styles.task}>
-            {item.subtasks.length === 0 ? (
+            {info.task.sub_task.length === 0 ? (
               <CSSTransition
                 classNames={{
                   enter: styles.errorEnter,
@@ -27,9 +27,9 @@ const HomeTasks = ({ tasks, deleteTask }) => {
                 <p className={styles.error}>Список пуст</p>
               </CSSTransition>
             ) : (
-              item.subtasks.map((task) => (
+              info.task.sub_task.map((subtask) => (
                 <CSSTransition
-                  key={task.id}
+                  key={Math.random()}
                   classNames={{
                     enter: styles.subTaskEnter,
                     enterActive: styles.subTaskEnterActive,
@@ -39,8 +39,8 @@ const HomeTasks = ({ tasks, deleteTask }) => {
                   timeout={400}
                 >
                   <SubTask
-                    task={task}
-                    mainTaskId={item.id}
+                    task={subtask}
+                    mainTaskId={info.task.id}
                     deleteTask={deleteTask}
                   />
                 </CSSTransition>

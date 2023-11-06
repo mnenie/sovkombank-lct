@@ -12,10 +12,10 @@ const SubTask = ({ task, deleteTask, mainTaskId }) => {
   };
   return (
     <>
-    <div onClick={() => setIsOpenModal(true)} key={task.id} className={styles.sub_task}>
+    <div onClick={() => setIsOpenModal(true)} key={Math.random()} className={styles.sub_task}>
       <span>{task.title}</span>
       <div className={styles.state}>
-        <span>{task.about}</span>
+        <span>{"static"}</span>
         <div className={styles.checkbox_items}>
           <Checkbox checked={checked} setChecked={change} />
         </div>
