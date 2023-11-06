@@ -18,11 +18,10 @@ const WorkersTable = () => {
   });
   const [val1, setVal1] = useState("");
   const [val2, setVal2] = useState("");
-  const [value, setValue] = useState(0);
-  const changeValue = (event) => {
-    setValue(event.target.value);
-    console.log(event.target.value);
-  };
+  // const changeValue = (event) => {
+  //   setValue(event.target.value);
+  //   console.log(event.target.value);
+  // };
   const inputs = [
     {
       id: 1,
@@ -41,33 +40,6 @@ const WorkersTable = () => {
       onChange: setVal2,
       title: "login",
       label: "Логин",
-    },
-  ];
-  const radios = [
-    {
-      id: 1,
-      label: 1,
-      value: 1,
-    },
-    {
-      id: 2,
-      label: 2,
-      value: 2,
-    },
-    {
-      id: 3,
-      label: 3,
-      value: 3,
-    },
-    {
-      id: 4,
-      label: 4,
-      value: 4,
-    },
-    {
-      id: 5,
-      label: 5,
-      value: 5,
     },
   ];
   const workers = [
@@ -148,9 +120,9 @@ const WorkersTable = () => {
                 </Button>
               </div>
               <Reviews
-                value2={value}
-                changeValue={changeValue}
-                radios={radios}
+                // value2={value}
+                // changeValue={setValue}
+                // radios={radios}
               />
             </div>
             <TableBlock workers={workers} />
