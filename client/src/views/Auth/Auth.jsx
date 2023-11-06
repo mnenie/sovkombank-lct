@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button/Button";
 import styles from './auth.module.scss'
 import { observer } from 'mobx-react-lite';
 import { useForm } from "react-hook-form"
-
+import UserService from "../../services/UserService";
 
 const Auth = observer(() => {
   const {
@@ -38,8 +38,9 @@ const Auth = observer(() => {
       label: 'Пароль'
     },
   ];
-  const onSubmit = (data) => {
-    console.log(data)
+  const onSubmit = async () => {
+    const resp = await UserService.login(val1,val2);
+    console.log(resp);
   };
   return (
     <div className={styles.auth}>

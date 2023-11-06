@@ -22,7 +22,6 @@ const WorkersTable = () => {
   const changeValue = (event) => {
     const a = event.target.value
     setValue(a);
-    console.log(a);
   };
   const inputs = [
     {
