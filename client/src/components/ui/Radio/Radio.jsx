@@ -1,11 +1,11 @@
 import styles from "./radio.module.scss";
-const Ratio = ({ label }) => {
+const Radio = ({ label, value, changeValue, checked }) => {
   return (
     <div className={styles.input}>
       <label>{label}</label>
-      <input type="radio" />
+      <input type="radio" checked={checked} value={value} onChange={changeValue} />
     </div>
   );
 };
 
-export default Ratio;
+export default Radio;

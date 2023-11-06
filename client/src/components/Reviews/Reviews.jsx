@@ -1,34 +1,11 @@
 import { useState } from "react";
 import styles from "@/views/WokerksTable/table.module.scss";
 import Input from "../ui/Input/Input";
-import Select from "react-select";
 import Button from "../ui/Button/Button";
 import TextArea from "../ui/TextArea/TextArea";
 import Radio from "../ui/Radio/Radio";
-const Reviews = ({ gradeOptions }) => {
-  const [value, setValue] = useState("");
-  const radios = [
-    {
-      id: 1,
-      label: 1,
-    },
-    {
-      id: 2,
-      label: 2,
-    },
-    {
-      id: 3,
-      label: 3,
-    },
-    {
-      id: 4,
-      label: 4,
-    },
-    {
-      id: 5,
-      label: 5,
-    },
-  ];
+const Reviews = ({changeValue, radios, value2}) => {
+  const [value1, setValue1] = useState("");
   return (
     <div className={styles.form_block}>
       <h1>Отзывы о сотруднике</h1>
@@ -37,8 +14,8 @@ const Reviews = ({ gradeOptions }) => {
           label={"Логин"}
           type={"text"}
           placeholder={"Введите логин"}
-          value={value}
-          onChange={setValue}
+          value={value1}
+          onChange={setValue1}
         />
       </div>
       {/* <div className={styles.select}>
@@ -50,7 +27,7 @@ const Reviews = ({ gradeOptions }) => {
         <p>Поставить оценку</p>
         <div className={styles.radios}>
           {radios.map((radio) => (
-            <Radio key={radio.id} label={radio.label} />
+            <Radio key={radio.id} checked={value2 === radio.value} label={radio.label} value={radio.value} changeValue={changeValue} />
           ))}
         </div>
       </div>
