@@ -5,9 +5,9 @@ import styles from './auth.module.scss'
 import { observer } from 'mobx-react-lite';
 import { useForm } from "react-hook-form"
 import {Context} from '../../main'
+// import {useNavigate} from 'react-router-dom'
 const Auth = observer(() => {
   
-
   const {
     register,
     handleSubmit,

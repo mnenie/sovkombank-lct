@@ -4,9 +4,8 @@ import Input from "../ui/Input/Input";
 import Button from "../ui/Button/Button";
 import TextArea from "../ui/TextArea/TextArea";
 import Radio from "../ui/Radio/Radio";
-const Reviews = ({changeValue, radios, value2}) => {
+const Reviews = ({radios, value2, changeValue}) => {
   const [value1, setValue1] = useState("");
-
   return (
     <div className={styles.form_block}>
       <h1>Отзывы о сотруднике</h1>

@@ -32,7 +32,7 @@ const Footer = () => {
     };
   }, []); 
 
-  const isMobile = windowWidth <= 650;
+  const isMobile = windowWidth <= 768;
   return (
     <footer className={styles.footer}>
       <div className="container">

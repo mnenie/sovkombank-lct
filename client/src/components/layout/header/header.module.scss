@@ -58,7 +58,16 @@ header {
   width: 2rem;
   height: 2rem;
 }
-@media screen and (max-width: 650px) {
+.auth_new{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.logout{
+  color: var(--blue-color);
+}
+
+@media screen and (max-width: 768px) {
   header {
     padding: 1.2rem 0;
     position: absolute;
