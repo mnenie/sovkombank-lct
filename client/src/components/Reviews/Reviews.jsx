@@ -5,7 +5,7 @@ import Button from "../ui/Button/Button";
 import TextArea from "../ui/TextArea/TextArea";
 import Radio from "../ui/Radio/Radio";
 const Reviews = ({radios, value2, changeValue}) => {
-  const [value1, setValue1] = useState("");
+  const [login, setLogin] = useState("");
   return (
     <div className={styles.form_block}>
       <h1>Отзывы о сотруднике</h1>
@@ -14,8 +14,8 @@ const Reviews = ({radios, value2, changeValue}) => {
           label={"Логин"}
           type={"text"}
           placeholder={"Введите логин"}
-          value={value1}
-          onChange={setValue1}
+          value={login}
+          onChange={setLogin}
         />
       </div>
       <TextArea />

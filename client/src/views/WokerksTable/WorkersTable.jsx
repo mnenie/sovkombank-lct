@@ -16,20 +16,21 @@ const WorkersTable = () => {
   } = useForm({
     mode: "onBlur",
   });
-  const [val1, setVal1] = useState("ana sidi");
-  const [val2, setVal2] = useState("");
-  const [value, setValue] = useState(0);
+  const [filterName, setFilterName] = useState("ana sidi");
+  const [loginFilter, setLoginFilter] = useState("");
+  const [radioValue, setRadioValue] = useState(0);
+  
   const changeValue = (event) => {
     const a = event.target.value
-    setValue(a);
+    setRadioValue(a);
   };
   const inputs = [
     {
       id: 1,
       placeholder: "Введите имя",
       type: "text",
-      value: val1,
-      onChange: setVal1,
+      value: filterName,
+      onChange: setFilterName,
       title: "name",
       label: "Имя",
     },
@@ -37,8 +38,8 @@ const WorkersTable = () => {
       id: 2,
       placeholder: "Введите логин",
       type: "text",
-      value: val2,
-      onChange: setVal2,
+      value: loginFilter,
+      onChange: setLoginFilter,
       title: "login",
       label: "Логин",
     },
@@ -148,7 +149,7 @@ const WorkersTable = () => {
                 </Button>
               </div>
               <Reviews
-                value2={value}
+                value2={radioValue}
                 changeValue={changeValue}
                 radios={radios}
               />
