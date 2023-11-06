@@ -66,8 +66,8 @@ const Home = () => {
   ]);
   const user = JSON.parse(localStorage.getItem('user'));
 
-  useEffect(async () => {
-    await TaskService.getUserTasks(user.id);
+  useEffect(() => {
+    TaskService.getUserTasks(user.id).then((tasks) => {console.log(tasks);});
   },[])
 
   const deleteTask = (taskId, subtaskId) => {
