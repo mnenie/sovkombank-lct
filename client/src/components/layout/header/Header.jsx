@@ -31,6 +31,9 @@ const Header = observer(() => {
     await user.logout();
     location.reload();
   };
+  // const goBack = () => {
+  //   // location.reload();
+  // }
   const isMobile = windowWidth <= 768;
   return (
     <header>

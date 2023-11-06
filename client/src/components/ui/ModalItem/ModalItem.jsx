@@ -12,26 +12,20 @@ const customStyles = {
     padding: "40px",
   },
 };
-const ModalItem = ({isOpen,setIsOpen, children}) => {
-  let subtitle;
-
-  function afterOpenModal() {
-    subtitle.style.color = "#f00";
-  }
-
+const ModalItem = ({ isOpen, setIsOpen, children }) => {
   function closeModal() {
     setIsOpen(false);
   }
   return (
-      <Modal
-        isOpen={isOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Modal SubTask"
-      >
-        {children}
-      </Modal>
+    <Modal
+      ariaHideApp={false}
+      isOpen={isOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Modal SubTask"
+    >
+      {children}
+    </Modal>
   );
 };
 
