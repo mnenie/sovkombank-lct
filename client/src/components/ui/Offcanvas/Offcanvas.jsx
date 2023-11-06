@@ -2,7 +2,7 @@ import { stack as Menu } from "react-burger-menu";
 import { useState } from "react";
 import "./style.scss";
 import { NavLink } from "react-router-dom";
-import { AUTH_ROUTE } from "@/utils/consts";
+import { HOME_ROUTE } from "../../../utils/consts";
 
 const Offcanvas = () => {
   const [isOpen, setOpen] = useState(false);
@@ -23,7 +23,7 @@ const Offcanvas = () => {
       customBurgerIcon={<img src="/icons/burger.svg" />}
       customCrossIcon={<img src="/icons/cross.svg" />}
     >
-      <NavLink onClick={closeSideBar} className="auth_block" to={AUTH_ROUTE}>
+      <NavLink onClick={closeSideBar} className="auth_block" to={HOME_ROUTE}>
         <img src="/icons/entry1.svg" alt="" />
         Войти
       </NavLink>

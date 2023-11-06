@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Input from "@/components/ui/Input/Input";
 import Button from "@/components/ui/Button/Button";
 import styles from './auth.module.scss'
 import { observer } from 'mobx-react-lite';
 import { useForm } from "react-hook-form"
-import UserService from "../../services/UserService";
-
+import {Context} from '../../main'
 const Auth = observer(() => {
+  
+
   const {
     register,
     handleSubmit,
@@ -15,7 +16,7 @@ const Auth = observer(() => {
     mode: 'onBlur'
   });
 
-  // const {user} = useContext(Context)
+  const {user} = useContext(Context)
   const [val1, setVal1] = useState("");
   const [val2, setVal2] = useState("");
   const inputs = [
@@ -39,8 +40,8 @@ const Auth = observer(() => {
     },
   ];
   const onSubmit = async () => {
-    const resp = await UserService.login(val1,val2);
-    console.log(resp);
+    await user.login(val1,val2);
+    location.reload();
   };
   return (
     <div className={styles.auth}>
@@ -72,7 +73,7 @@ const Auth = observer(() => {
               </div>
             ))}
           </div>
-          <Button onClick={handleSubmit(onSubmit)}>Войти</Button>
+        <Button onClick={handleSubmit(onSubmit)}>Войти</Button>
         </div>
       </div>
     </div>
