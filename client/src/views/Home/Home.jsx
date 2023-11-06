@@ -4,6 +4,7 @@ import MapBlock from "@/components/Map/MapBlock";
 import { useEffect, useState } from "react";
 import {cloneDeep} from "lodash"
 import TaskService from "../../services/TaskService";
+import ModalItem from "../../components/ui/ModalItem/ModalItem";
 const Home = () => {
   const [tasks, setTasks] = useState( [
     {
@@ -86,6 +87,7 @@ const Home = () => {
         <div className={styles.blocks}>
           <div className={styles.block_1}>
             <HomeTasks tasks={tasks} deleteTask={deleteTask} />
+            <ModalItem />
           </div>
           <MapBlock />
         </div>
