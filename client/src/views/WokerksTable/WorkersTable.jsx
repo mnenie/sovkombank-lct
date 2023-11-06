@@ -18,10 +18,11 @@ const WorkersTable = () => {
   });
   const [val1, setVal1] = useState("");
   const [val2, setVal2] = useState("");
-  // const changeValue = (event) => {
-  //   setValue(event.target.value);
-  //   console.log(event.target.value);
-  // };
+  const [value, setValue] = useState(0);
+  const changeValue = (event) => {
+    const a = event.target.value
+    setValue(a);
+  };
   const inputs = [
     {
       id: 1,
@@ -68,6 +69,33 @@ const WorkersTable = () => {
       grade: "Middle",
     },
   ];
+  const radios = [
+    {
+      id: 1,
+      label: 1,
+      value: 1
+    },
+    {
+      id: 2,
+      label: 2,
+      value: 2
+    },
+    {
+      id: 3,
+      label: 3,
+      value: 3
+    },
+    {
+      id: 4,
+      label: 4,
+      value: 4
+    },
+    {
+      id: 5,
+      label: 5,
+      value: 5
+    }
+  ]
   const gradeOptions = EMPLOYEE_GRADE.map((x) => ({ value: x, label: x }));
   const onSubmit = (data) => {
     console.log(data);
@@ -120,9 +148,9 @@ const WorkersTable = () => {
                 </Button>
               </div>
               <Reviews
-                // value2={value}
-                // changeValue={setValue}
-                // radios={radios}
+                value2={value}
+                changeValue={changeValue}
+                radios={radios}
               />
             </div>
             <TableBlock workers={workers} />

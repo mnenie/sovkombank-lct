@@ -3,7 +3,7 @@ const Radio = ({ label, value, changeValue, checked }) => {
   return (
     <div className={styles.input}>
       <label>{label}</label>
-      <input type="radio" checked={checked} value={value} onChange={changeValue} />
+      <input type="radio"  value={value}  onChange={changeValue} checked={checked} />
     </div>
   );
 };
