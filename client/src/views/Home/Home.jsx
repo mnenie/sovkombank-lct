@@ -66,9 +66,9 @@ const Home = () => {
   ]);
   const user = JSON.parse(localStorage.getItem('user'));
 
-  useEffect(async () => {
-    await TaskService.getUserTasks(user.id);
-  },[])
+  // useEffect(async () => {
+  //   await TaskService.getUserTasks(user.id);
+  // },[])
 
   const deleteTask = (taskId, subtaskId) => {
     const newTasks = cloneDeep(tasks); 

@@ -5,7 +5,6 @@ import {Context} from '../main'
 
 const AppRouter = () => {
   let role = null;
-    console.log(localStorage.getItem('isAuth'))
     if (localStorage.getItem('isAuth')){
       role = JSON.parse(localStorage.getItem("user")).role
     }

@@ -8,7 +8,6 @@ import { Context } from "../../../main";
 
 const Header = observer(() => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [dropdown, setDropdown] = useState(false);
   const { user } = useContext(Context);
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -22,20 +21,17 @@ const Header = observer(() => {
     };
   }, []);
 
-  const isMobile = windowWidth <= 650;
   const isAuth = localStorage.getItem("isAuth");
 
   let name = null;
   if (localStorage.getItem("user")) {
     name = JSON.parse(localStorage.getItem("user")).name;
   }
-  const changeDropdown = () => {
-    setDropdown(!dropdown);
-  };
   const changeAuth = async () => {
     await user.logout();
     location.reload();
   };
+  const isMobile = windowWidth <= 768;
   return (
     <header>
       <div className="container">
@@ -57,14 +53,9 @@ const Header = observer(() => {
               {isAuth ? (
                 <div className={styles.auth_new}>
                   <span>{name}</span>
-                  <img onClick={changeDropdown} src="/icons/arrow.svg" alt="" />
-                  {dropdown ? (
-                    <div onClick={changeAuth} className={styles.dropdown}>
-                      Выход
-                    </div>
-                  ) : (
-                    <div></div>
-                  )}
+                  <div onClick={changeAuth} className={styles.logout}>
+                    <span>Выйти</span>
+                  </div>
                 </div>
               ) : (
                 <NavLink className={styles.link_header} to={HOME_ROUTE}>

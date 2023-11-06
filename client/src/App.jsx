@@ -17,7 +17,7 @@ const App = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  const isBurger = windowWidth <= 650;
+  const isBurger = windowWidth <= 768;
   return (
     <BrowserRouter>
       <div className="app-container">
