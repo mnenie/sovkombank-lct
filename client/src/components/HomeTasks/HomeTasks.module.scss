@@ -27,10 +27,10 @@
         display: flex;
         gap: 10px;
         align-items: center;
-        cursor: pointer;
         & img {
           width: 20px;
           height: 20px;
+          cursor: pointer;
         }
         .line {
           height: 1.25rem;
@@ -39,6 +39,7 @@
         }
         & span {
           color: var(--blue-color);
+          cursor: pointer;
         }
       }
     }

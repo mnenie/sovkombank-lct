@@ -54,7 +54,7 @@ const Header = observer(() => {
                 <div className={styles.auth_new}>
                   <span>{name}</span>
                   <div onClick={changeAuth} className={styles.logout}>
-                    <span>Выйти</span>
+                    <span style={{cursor: 'pointer'}}>Выйти</span>
                   </div>
                 </div>
               ) : (
