@@ -41,3 +41,26 @@ export const managerRoutes = [
     Component: NotFound
   }
 ]
+
+export const devRoutes = [
+  {
+    path: TASK_ROUTE,
+    Component : TaskForm
+  },
+  {
+    path: "/table",
+    Component : WorkersTable
+  },
+  {
+    path: HOME_ROUTE,
+    Component: Auth
+  },
+  {
+    path: "/home",
+    Component: Home
+  },
+  {
+    path: '*', 
+    Component: NotFound
+  }
+]

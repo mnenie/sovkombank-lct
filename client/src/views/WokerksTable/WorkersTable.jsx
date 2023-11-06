@@ -16,7 +16,7 @@ const WorkersTable = () => {
   } = useForm({
     mode: "onBlur",
   });
-  const [val1, setVal1] = useState("");
+  const [val1, setVal1] = useState("ana sidi");
   const [val2, setVal2] = useState("");
   const [value, setValue] = useState(0);
   const changeValue = (event) => {
