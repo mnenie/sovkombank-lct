@@ -43,72 +43,72 @@ const obj = {
       "path": "ул. Уральская, д. 79/1"
   }
 }
-
+// [
+//   {
+//     id: 1,
+//     title: "ВТБ на Ленинградке",
+//     subtasks: [{
+//       id: 1,
+//       title: "Флаеры",
+//       about: "Доставка карт и материалов",
+//     },
+//     {
+//       id: 2,
+//       title: "Молч",
+//       about: "Обучение агента",
+//     },
+//     {
+//       id: 3,
+//       title: "Дебетовая карта",
+//       about: "Выезд на точку для стимулирования выдач",
+//     },]
+//   },
+//   {
+//     id: 2,
+//     title: "ВТБ на Краснодарке",
+//     subtasks: [{
+//       id: 4,
+//       title: "Флаеры",
+//       about: "Доставка карт и материалов",
+//     },
+//     {
+//       id: 5,
+//       title: "Молч",
+//       about: "Обучение агента",
+//     },
+//     {
+//       id: 6,
+//       title: "Дебетовая карта",
+//       about: "Выезд на точку для стимулирования выдач",
+//     },]
+//   },
+//   {
+//     id: 3,
+//     title: "ВТБ на Краснодарке",
+//     subtasks: [{
+//       id: 7,
+//       title: "Флаеры",
+//       about: "Доставка карт и материалов",
+//     },
+//     {
+//       id: 8,
+//       title: "Молч",
+//       about: "Обучение агента",
+//     },
+//     {
+//       id: 9,
+//       title: "Дебетовая карта",
+//       about: "Выезд на точку для стимулирования выдач",
+//     },]
+//   },
+// ]
 const Home = () => {
-  const [tasks, setTasks] = useState( [
-    {
-      id: 1,
-      title: "ВТБ на Ленинградке",
-      subtasks: [{
-        id: 1,
-        title: "Флаеры",
-        about: "Доставка карт и материалов",
-      },
-      {
-        id: 2,
-        title: "Молч",
-        about: "Обучение агента",
-      },
-      {
-        id: 3,
-        title: "Дебетовая карта",
-        about: "Выезд на точку для стимулирования выдач",
-      },]
-    },
-    {
-      id: 2,
-      title: "ВТБ на Краснодарке",
-      subtasks: [{
-        id: 4,
-        title: "Флаеры",
-        about: "Доставка карт и материалов",
-      },
-      {
-        id: 5,
-        title: "Молч",
-        about: "Обучение агента",
-      },
-      {
-        id: 6,
-        title: "Дебетовая карта",
-        about: "Выезд на точку для стимулирования выдач",
-      },]
-    },
-    {
-      id: 3,
-      title: "ВТБ на Краснодарке",
-      subtasks: [{
-        id: 7,
-        title: "Флаеры",
-        about: "Доставка карт и материалов",
-      },
-      {
-        id: 8,
-        title: "Молч",
-        about: "Обучение агента",
-      },
-      {
-        id: 9,
-        title: "Дебетовая карта",
-        about: "Выезд на точку для стимулирования выдач",
-      },]
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
   const user = JSON.parse(localStorage.getItem('user'));
 
-  // useEffect(() => {
-  //   TaskService.getUserTasks(user.id).then((tasks) => {console.log(tasks);});
-  // },[])
+  useEffect(() => {
+    TaskService.getUserTasks(user.id).then((tasks) => {setTasks(tasks)  });
+  },[])
 
   const deleteTask = (taskId, subtaskId) => {
     const newTasks = cloneDeep(tasks); 
