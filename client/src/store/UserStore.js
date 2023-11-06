@@ -1,4 +1,5 @@
 import {makeAutoObservable} from 'mobx'
+import UserService from '../services/UserService';
 
 export default class UserStore {
   constructor(){
@@ -20,5 +21,13 @@ export default class UserStore {
   }
   get user(){
     return this._user;
+  }
+
+  async login(username, password){
+    try{
+      const resp = await UserService.login(username,password);
+    }catch(e){
+      console.log(e)
+    }
   }
 } 
