@@ -9,3 +9,12 @@
 .ymaps-2-1-79-map{
   width: 100% !important;
 }
+
+@media screen and (max-width: 1183px){
+  .map{
+    height: 700px !important;
+  }
+  .ymaps-2-1-79-map{
+    width: 100% !important;
+  }
+}
