@@ -17,15 +17,15 @@ const Auth = observer(() => {
   });
 
   const {user} = useContext(Context)
-  const [val1, setVal1] = useState("");
-  const [val2, setVal2] = useState("");
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
   const inputs = [
     {
       id: 1,
       placeholder: "Введите логин",
       type: "text",
-      value: val1,
-      onChange: setVal1,
+      value: login,
+      onChange: setLogin,
       title: "login",
       label: 'Логин'
     },
@@ -33,14 +33,14 @@ const Auth = observer(() => {
       id: 2,
       placeholder: "Введите пароль",
       type: "password",
-      value: val2,
-      onChange: setVal2,
+      value: password,
+      onChange: setPassword,
       title: "password",
       label: 'Пароль'
     },
   ];
   const onSubmit = async () => {
-    await user.login(val1,val2);
+    await user.login(login,password);
     location.reload();
   };
   return (
