@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@2gis/mapgl": "^1.41.0",
+    "@2gis/mapgl-directions": "^2.0.2",
     "@pbe/react-yandex-maps": "^1.2.5",
     "axios": "^1.6.0",
     "lodash": "^4.17.21",
