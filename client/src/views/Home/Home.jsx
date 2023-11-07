@@ -36,7 +36,7 @@ const Home = () => {
             <HomeTasks tasks={tasks} deleteTask={deleteTask} />
           </div>
           <div style={{ width: "100%", height: '400px' }}>
-            <MapBlock />
+            {/* <MapBlock /> */}
           </div>
         </div>
       </div>

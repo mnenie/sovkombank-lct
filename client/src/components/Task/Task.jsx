@@ -51,10 +51,7 @@ const Task = ({ task, deleteTask }) => {
           >
             {task.task.title}
           </h3>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <span>Название задачи:</span>
-            <span>{task.tolmut.name}</span>
-          </div>
+          <span>Название задачи: {task.tolmut.name}</span>
           <span>Адрес точки: г. Краснодар, {task.address.path}</span>
           <span>
             Дата:{" "}
