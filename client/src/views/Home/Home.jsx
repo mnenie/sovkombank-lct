@@ -1,6 +1,6 @@
 import styles from "./home.module.scss";
 import HomeTasks from "@/components/HomeTasks/HomeTasks";
-import MapBlock from "@/components/Map/MapBlock";
+import Map from "@/components/Map/Map";
 import { useEffect, useState } from "react";
 import { cloneDeep } from "lodash";
 import TaskService from "../../services/TaskService";
@@ -36,7 +36,7 @@ const Home = () => {
             <HomeTasks tasks={tasks} deleteTask={deleteTask} />
           </div>
           <div style={{ width: "100%", height: '400px' }}>
-            {/* <MapBlock /> */}
+            <Map/>
           </div>
         </div>
       </div>
