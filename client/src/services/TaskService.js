@@ -5,7 +5,6 @@ export default class TaskService{
         try{
             const response = await $API.get('/all-tasks-schedule');
             const userTasks = response.data.filter(task => task['user-courier-info'].id === id);
-            console.log(response.data.filter(task => task['user-courier-info'].id === id));
             return userTasks;
         }catch(e){
             console.log(e);

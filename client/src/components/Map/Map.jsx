@@ -1,26 +1,90 @@
-import React, { useEffect } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import MapboxDirections from '@mapbox/mapbox-gl-directions';
+import React, { useRef, useEffect, useState } from 'react';
+import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import axios from 'axios'
+import 'mapbox-gl/dist/mapbox-gl.css'; 
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiYXlhYW56YXZlcmkiLCJhIjoiY2ttZHVwazJvMm95YzJvcXM3ZTdta21rZSJ9.WMpQsXd5ur2gP8kFjpBo8g';
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
-const App = () => {
+export default function App() {
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [lng, setLng] = useState(-122.39636);
+  const [lat, setLat] = useState(37.79129);
+  const [zoom, setZoom] = useState(12);
+
+  function displayRouteOnMap(routeData) {
+    const coordinates = routeData.routes[0].geometry.coordinates;
+    
+    map.current.addLayer({
+      id: 'route',
+      type: 'line',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+            type: 'LineString',
+            coordinates: coordinates
+          }
+        }
+      },
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#3887be',
+        'line-width':5
+      }
+    });
+    const startMarker = new mapboxgl.Marker({ color: 'green' })
+    .setLngLat(coordinates[0])
+    .addTo(map.current);
+
+  const endMarker = new mapboxgl.Marker({ color: 'red' })
+    .setLngLat(coordinates[coordinates.length - 1])
+    .addTo(map.current);
+  }
+
+
+  function handler(){
+    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    axios.get(`https://api.mapbox.com/directions/v5/mapbox/driving/-122.39636,37.79129;-122.39732,37.79283;-122.39606,37.79349?geometries=geojson&access_token=${import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}`)
+      .then(response => {
+        const routeData = response.data;
+        displayRouteOnMap(routeData);
+      }).catch(err => console.error(err));
+  }
+
   useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: this.mapWrapper,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-73.985664, 40.748514],
-      zoom: 12,
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [lng, lat],
+      zoom: zoom
     });
-    const directions = new MapboxDirections({
-      accessToken: mapboxgl.accessToken,
-      unit: 'metric',
-      profile: 'mapbox/driving',
+
+    map.current.on('move', () => {
+      setLng(map.current.getCenter().lng.toFixed(4));
+      setLat(map.current.getCenter().lat.toFixed(4));
+      setZoom(map.current.getZoom().toFixed(2));
     });
-    map.addControl(directions, 'top-left');
+    
+    map.current.on('load', handler);
+    
   });
-  return <div ref={(el) => (this.mapWrapper = el)} className="mapWrapper" />;
-};
-export default App;
+
+
+  
+  return (
+    <div>
+      <div className="sidebar">
+        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+      </div>
+      <div ref={mapContainer} style={{width:'900px', height:'500px'}} />
+    </div>
+  );
+}
