@@ -6,7 +6,7 @@ import styles from "./subtask.module.scss";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const SubTask = ({ task, deleteTask, mainTaskId, isModer, setIsModer }) => {
+const SubTask = ({ task, deleteTask, mainTaskId, isModer, setIsModer, onClick }) => {
   const [checked, setChecked] = useState(false);
   const change = () => {
     setChecked(!checked);
@@ -31,6 +31,7 @@ const SubTask = ({ task, deleteTask, mainTaskId, isModer, setIsModer }) => {
                 style={{ width: "20px", height: "20px", cursor: 'pointer' }}
                 src="/icons/add.png"
                 alt=""
+                onClick={onClick}
               />
             </div>
           ) : (

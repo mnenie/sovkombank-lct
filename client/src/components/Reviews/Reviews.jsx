@@ -6,37 +6,34 @@ import TextArea from "../ui/TextArea/TextArea";
 import Radio from "../ui/Radio/Radio";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-const Reviews = ({radios, value2, changeValue}) => {
+const Reviews = ({ radios, value2, changeValue }) => {
   const [login, setLogin] = useState("");
   const clickRewiews = () => {
     withReactContent(Swal).fire({
-      title: "Отзыв отправлен",
+      title: "Отчет отправлен",
       text: "Нажмите на кнопку, чтобы продолжить",
       icon: "success",
     });
   };
   return (
     <div className={styles.form_block}>
-      <h1>Отзывы о сотруднике</h1>
-      <div className={styles.inputs}>
-        <Input
-          label={"Логин"}
-          type={"text"}
-          placeholder={"Введите логин"}
-          value={login}
-          onChange={setLogin}
-        />
-      </div>
-      <TextArea />
-      <div className={styles.radio}>
-        <p>Поставить оценку</p>
-        <div className={styles.radios}>
-          {radios.map((radio) => (
-            <Radio key={radio.id} label={radio.label} value={radio.value} changeValue={changeValue}  checked={value2 == radio.value}/>
-          ))}
+      <div className={styles.form_block_1}>
+        <h1>Формирование отчета</h1>
+        <div className={styles.inputs}>
+          <Input
+            label={"Логин"}
+            type={"text"}
+            placeholder={"Введите логин"}
+            value={login}
+            onChange={setLogin}
+          />
+        </div>
+        <div className={styles.document}>
+          <label htmlFor="">Файл .xlsx или .xls</label>
+          <input type="file" name='file' accept=".xlsx" />
         </div>
       </div>
-      <Button onClick={clickRewiews}>Отправить отзыв</Button>
+      <Button onClick={clickRewiews}>Отправить отчет</Button>
     </div>
   );
 };

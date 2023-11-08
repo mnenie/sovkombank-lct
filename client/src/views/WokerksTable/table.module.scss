@@ -22,6 +22,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    &_1{
+      display: flex;
+      flex-direction: column;
+    }
     & h1 {
       margin: 0;
       margin-bottom: 40px;
@@ -83,7 +87,12 @@ label {
   flex-direction: column;
   gap: 5px;
 }
-
+.document{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+}
 @media screen and (max-width: 890px) {
   .form{
     .blocks{

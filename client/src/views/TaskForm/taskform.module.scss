@@ -14,6 +14,13 @@
     margin-bottom: 80px;
     max-width: 500px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &_1{
+      display: flex;
+      flex-direction: column;
+    }
     & h1 {
       margin: 0;
       margin-bottom: 40px;

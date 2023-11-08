@@ -19,9 +19,9 @@ const WorkersTable = () => {
   const [filterName, setFilterName] = useState("ana sidi");
   const [loginFilter, setLoginFilter] = useState("");
   const [radioValue, setRadioValue] = useState(0);
-  
+
   const changeValue = (event) => {
-    const a = event.target.value
+    const a = event.target.value;
     setRadioValue(a);
   };
   const inputs = [
@@ -74,29 +74,29 @@ const WorkersTable = () => {
     {
       id: 1,
       label: 1,
-      value: 1
+      value: 1,
     },
     {
       id: 2,
       label: 2,
-      value: 2
+      value: 2,
     },
     {
       id: 3,
       label: 3,
-      value: 3
+      value: 3,
     },
     {
       id: 4,
       label: 4,
-      value: 4
+      value: 4,
     },
     {
       id: 5,
       label: 5,
-      value: 5
-    }
-  ]
+      value: 5,
+    },
+  ];
   const gradeOptions = EMPLOYEE_GRADE.map((x) => ({ value: x, label: x }));
   const onSubmit = (data) => {
     console.log(data);
@@ -108,38 +108,40 @@ const WorkersTable = () => {
           <div className={styles.blocks}>
             <div className={styles.blocks_1}>
               <div className={styles.form_block}>
-                <h1>Поиск</h1>
-                <div className={styles.inputs}>
-                  {inputs.map((input) => (
-                    <div className={styles.inputs_block} key={input.id}>
-                      <Input
-                        label={input.label}
-                        type={input.type}
-                        placeholder={input.placeholder}
-                        value={input.value}
-                        onChange={input.onChange}
-                        register={register(input.title, {
-                          // required: "Обязательное поле",
-                          ...(input.title === "name" && {
-                            pattern: {
-                              value: /^[А-Яа-яA-Za-z ]+$/,
-                              message:
-                                "Поле не должно содержать недопустимых символов",
-                            },
-                          }),
-                        })}
-                      />
-                      <div className={styles.error}>
-                        {errors[input.title] && (
-                          <p>* {errors[input.title].message || "Ошибка!"}</p>
-                        )}
+                <div className={styles.form_block_1}>
+                  <h1>Поиск</h1>
+                  <div className={styles.inputs}>
+                    {inputs.map((input) => (
+                      <div className={styles.inputs_block} key={input.id}>
+                        <Input
+                          label={input.label}
+                          type={input.type}
+                          placeholder={input.placeholder}
+                          value={input.value}
+                          onChange={input.onChange}
+                          register={register(input.title, {
+                            // required: "Обязательное поле",
+                            ...(input.title === "name" && {
+                              pattern: {
+                                value: /^[А-Яа-яA-Za-z ]+$/,
+                                message:
+                                  "Поле не должно содержать недопустимых символов",
+                              },
+                            }),
+                          })}
+                        />
+                        <div className={styles.error}>
+                          {errors[input.title] && (
+                            <p>* {errors[input.title].message || "Ошибка!"}</p>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.select}>
-                  <label>Грейд</label>
-                  <Select options={gradeOptions} />
+                    ))}
+                  </div>
+                  <div className={styles.select}>
+                    <label>Грейд</label>
+                    <Select options={gradeOptions} />
+                  </div>
                 </div>
                 <Button
                   onClick={handleSubmit(onSubmit)}
