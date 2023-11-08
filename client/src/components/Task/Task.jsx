@@ -19,7 +19,6 @@ const Task = ({ task, deleteTask, isModer }) => {
   const openEditTask = () => {
     setIsOpenEditModal(true);
   };
-  
   const [title, setTitle] = useState(task.task.title);
   const [titleSubTaskAdd, setTitleSubTaskAdd] = useState('');
   const [taskName, setTaskName] = useState(task.tolmut.name);
