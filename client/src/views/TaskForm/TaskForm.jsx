@@ -19,9 +19,6 @@ const TaskForm = () => {
     }));
     const a = [...tasks, newTask];
     setTasks(a);
-    console.log(newTask);
-    console.log(a);
-    console.log(selectedValues);
   };
   const selectChange = (index, selectedOption) => {
     setSelectedValues((prevSelectedValues) => ({

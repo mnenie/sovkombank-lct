@@ -22,7 +22,6 @@ const Home = () => {
         newTasks[index].task.sub_task = newTasks[index].task.sub_task.filter(
           (subtask) => subtask.title !== subtaskTitle
         );
-        console.log(newTasks[index]);
         break;
       }
     }
@@ -36,7 +35,7 @@ const Home = () => {
             <HomeTasks tasks={tasks} deleteTask={deleteTask} />
           </div>
           <div style={{ width: "100%", height: '400px' }}>
-            <Map/>
+            <Map coordinates={["38.976,45.0448","38.990,45.0450","38.992,45.04"]}/>
           </div>
         </div>
       </div>

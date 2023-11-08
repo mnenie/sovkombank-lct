@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import TaskService from "../../services/TaskService";
 const WatchTasks = () => {
   const [tasks, setTasks] = useState([]);
-  const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     TaskService.getAllTasks().then((tasks) => {
       setTasks(tasks);
