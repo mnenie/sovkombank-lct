@@ -1,21 +1,14 @@
 import styles from "../HomeTasks/HomeTasks.module.scss";
 import SubTask from "../SubTask/SubTask";
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import ModalTask from "../ModalTask/ModalTask";
 import ModalEdit from "../ModalEdit/ModalEdit";
 import ModalAdd from "../ModalAdd/ModalAdd";
-const Task = ({ task, deleteTask }) => {
-  const [isModer, setIsModer] = useState(false);
+const Task = ({ task, deleteTask, isModer }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [isOpenAddModal, setIsOpenAddModal] = useState(false);
-  const route = useLocation();
-  useEffect(() => {
-    if (route.pathname === "/task") {
-      setIsModer(true);
-    }
-  });
+
   const date = new Date(task.date * 1000);
   function pad(number) {
     if (number < 10) {
@@ -24,15 +17,10 @@ const Task = ({ task, deleteTask }) => {
     return number;
   }
   const openEditTask = () => {
-    setFl(true);
     setIsOpenEditModal(true);
   };
-  const openEditSubTask = () => {
-    setFl(false);
-    setIsOpenEditModal(true);
-  };
-  const [title, setTitle] = useState(task.task.title);
   
+  const [title, setTitle] = useState(task.task.title);
   const [titleSubTaskAdd, setTitleSubTaskAdd] = useState('');
   const [taskName, setTaskName] = useState(task.tolmut.name);
   const [data, setData] = useState(
@@ -114,8 +102,6 @@ const Task = ({ task, deleteTask }) => {
                 mainTaskId={task.task.id}
                 deleteTask={deleteTask}
                 isModer={isModer}
-                setIsModer={setIsModer}
-                onClick={openEditSubTask}
               />
             ))}
             <div
@@ -138,7 +124,6 @@ const Task = ({ task, deleteTask }) => {
               mainTaskId={task.task.id}
               deleteTask={deleteTask}
               isModer={isModer}
-              setIsModer={setIsModer}
             />
           ))
         )}

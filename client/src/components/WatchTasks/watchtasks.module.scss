@@ -1,0 +1,23 @@
+.blocks{
+  max-width: 900px;
+  width: 100%;
+}
+.add {
+  width: 100%;
+  box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.09);
+  border-radius: 5px;
+  padding: 40px;
+  margin-bottom: 80px;
+  max-width: 100%;
+  & h1 {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 1200px){
+  .blocks{
+    max-width: 100%;
+  }
+  .add{
+    margin-bottom: 20px;
+  }
+}

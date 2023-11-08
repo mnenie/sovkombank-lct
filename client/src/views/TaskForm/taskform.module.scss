@@ -4,6 +4,7 @@
     display: flex;
     gap: 20px;
     justify-content: space-between;
+    width: 100%;
     // align-items: stretch;
   }
   .form_block {
@@ -34,6 +35,18 @@
         font-size: 14px;
         margin-bottom: -15px;
       }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .form{
+    &_blocks{
+      flex-direction: column-reverse;
+      margin-bottom: 80px;
+    }
+    .form_block{
+      margin-bottom: 0px;
+      max-width: 100%;
     }
   }
 }
