@@ -5,7 +5,7 @@ const WatchTasks = () => {
   const [tasks, setTasks] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
-    TaskService.getUserTasks(user.id).then((tasks) => {
+    TaskService.getAllTasks().then((tasks) => {
       setTasks(tasks);
     });
   }, []);
@@ -13,7 +13,7 @@ const WatchTasks = () => {
     <div style={{ maxWidth: "900px", width: "100%" }}>
       <div className="add">
         <h1>Редактирование задач</h1>
-        <HomeTasks tasks={tasks} />
+        <HomeTasks isModer={true} tasks={tasks} />
       </div>
     </div>
   );

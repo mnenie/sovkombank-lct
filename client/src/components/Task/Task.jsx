@@ -10,8 +10,6 @@ const Task = ({ task, deleteTask }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [isOpenAddModal, setIsOpenAddModal] = useState(false);
-  const [fl, setFl] = useState(false);
-  const [flAdd, setFlAdd] = useState(false);
   const route = useLocation();
   useEffect(() => {
     if (route.pathname === "/task") {
@@ -34,7 +32,7 @@ const Task = ({ task, deleteTask }) => {
     setIsOpenEditModal(true);
   };
   const [title, setTitle] = useState(task.task.title);
-  const [titleSubTask, setTitleSubTask] = useState(task.task.title);
+  
   const [titleSubTaskAdd, setTitleSubTaskAdd] = useState('');
   const [taskName, setTaskName] = useState(task.tolmut.name);
   const [data, setData] = useState(
@@ -69,16 +67,7 @@ const Task = ({ task, deleteTask }) => {
       label: "Дата",
     },
   ];
-  const inputsSubTask = [
-    {
-      id: 1,
-      placeholder: "Введите название подзадачи",
-      type: "text",
-      value: titleSubTask,
-      onChange: setTitleSubTask,
-      label: "Название подзадачи",
-    },
-  ];
+
   const inputsSubTaskAdd = [
     {
       id: 1,
@@ -156,7 +145,7 @@ const Task = ({ task, deleteTask }) => {
       </div>
       {isModer ? (
         <div>
-          <ModalEdit task={task} isOpenEditModal={isOpenEditModal} setIsOpenEditModal={setIsOpenEditModal} inputs={fl ? inputsTask : inputsSubTask} />
+          <ModalEdit task={task} isOpenEditModal={isOpenEditModal} setIsOpenEditModal={setIsOpenEditModal} inputs={inputsTask } />
           <ModalTask task={task} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
           <ModalAdd inputs={inputsSubTaskAdd} task={task} isOpenAddModal={isOpenAddModal} setIsOpenAddModal={setIsOpenAddModal} />
         </div>
