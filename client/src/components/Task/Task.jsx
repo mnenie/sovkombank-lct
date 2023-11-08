@@ -4,24 +4,27 @@ import React, { useState } from "react";
 import ModalTask from "../ModalTask/ModalTask";
 import ModalEdit from "../ModalEdit/ModalEdit";
 import ModalAdd from "../ModalAdd/ModalAdd";
+
+function pad(number) {
+  if (number < 10) {
+    return "0" + number;
+  }
+  return number;
+}
+
 const Task = ({ task, deleteTask, isModer }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [isOpenAddModal, setIsOpenAddModal] = useState(false);
-
-  const date = new Date(task.date * 1000);
-  function pad(number) {
-    if (number < 10) {
-      return "0" + number;
-    }
-    return number;
-  }
   const openEditTask = () => {
     setIsOpenEditModal(true);
   };
   const [title, setTitle] = useState(task.task.title);
   const [titleSubTaskAdd, setTitleSubTaskAdd] = useState('');
   const [taskName, setTaskName] = useState(task.tolmut.name);
+  
+  const date = new Date(task.date * 1000);
+  
   const [data, setData] = useState(
     `${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()}`
   );
@@ -54,7 +57,6 @@ const Task = ({ task, deleteTask, isModer }) => {
       label: "Дата",
     },
   ];
-
   const inputsSubTaskAdd = [
     {
       id: 1,
@@ -65,6 +67,7 @@ const Task = ({ task, deleteTask, isModer }) => {
       label: "Название подзадачи",
     },
   ];
+
   return (
     <>
       <div className={styles.task}>
@@ -134,7 +137,7 @@ const Task = ({ task, deleteTask, isModer }) => {
           <ModalAdd inputs={inputsSubTaskAdd} task={task} isOpenAddModal={isOpenAddModal} setIsOpenAddModal={setIsOpenAddModal} />
         </div>
       ) : (
-        <ModalTask task={task} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
+      <ModalTask task={task} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
       )}
     </>
   );

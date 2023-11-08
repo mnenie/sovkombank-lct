@@ -5,10 +5,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { RulerControl, ImageControl } from "mapbox-gl-controls";
 import "mapbox-gl-controls/lib/controls.css";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiYXlhYW56YXZlcmkiLCJhIjoiY2ttZHVwazJvMm95YzJvcXM3ZTdta21rZSJ9.WMpQsXd5ur2gP8kFjpBo8g";
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
-export default function Map(coordinates) {
+export default function Map({coordinates}) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(38.976);
@@ -16,7 +15,7 @@ export default function Map(coordinates) {
   const [zoom, setZoom] = useState(12);
 
   function displayRouteOnMap(routeData) {
-    const coordinates = routeData.routes[0].geometry.coordinates;
+    const coords = routeData.routes[0].geometry.coordinates;
     
     map.current.addLayer({
       id: 'route',
@@ -28,7 +27,7 @@ export default function Map(coordinates) {
           properties: {},
           geometry: {
             type: 'LineString',
-            coordinates: coordinates
+            coordinates: coords
           }
         }
       },
@@ -42,13 +41,20 @@ export default function Map(coordinates) {
       }
     });
 
+
+    for(let c of coordinates) {
+      new mapboxgl.Marker({ color: 'green' })
+      .setLngLat(c.split(',').map(x => parseFloat(x)))
+      .addTo(map.current);
+    }      
+    
   }
 
 
   function handler(){
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
-
-    axios.get(`https://api.mapbox.com/directions/v5/mapbox/driving/-122.39636,37.79129;-122.39732,37.79283?geometries=geojson&access_token=${mapboxgl.accessToken}`)
+    const coords = coordinates.join(';')
+    axios.get(`https://api.mapbox.com/directions/v5/mapbox/driving/${coords}?annotations=maxspeed&overview=full&geometries=geojson&access_token=${mapboxgl.accessToken}`)
       .then(response => {
         const routeData = response.data;
         displayRouteOnMap(routeData);
@@ -56,7 +62,7 @@ export default function Map(coordinates) {
   }
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) return; 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
@@ -71,17 +77,11 @@ export default function Map(coordinates) {
     });
 
     map.current.on("load", handler);
-
     map.current.addControl(new ImageControl(), "top-right");
-    map.current.addControl(new RulerControl(), "top-right");
-    map.current.on("ruler.on", () => console.log("ruler: on"));
-    map.current.on("ruler.off", () => console.log("ruler: off"));
+
   });
   return (
     <div>
-      {/* <div className="sidebar">
-        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-      </div> */}
       <div ref={mapContainer} style={{ width: "100%", height: "500px" }} />
     </div>
   );
