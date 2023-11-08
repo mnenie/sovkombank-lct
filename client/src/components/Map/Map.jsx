@@ -51,7 +51,7 @@ export default function App() {
   function handler(){
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
-    axios.get(`https://api.mapbox.com/directions/v5/mapbox/driving/-122.39636,37.79129;-122.39732,37.79283;-122.39606,37.79349?geometries=geojson&access_token=${import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}`)
+    axios.get(`https://api.mapbox.com/directions/v5/mapbox/driving/-122.39636,37.79129;-122.39732,37.79283?geometries=geojson&access_token=${import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}`)
       .then(response => {
         const routeData = response.data;
         displayRouteOnMap(routeData);
