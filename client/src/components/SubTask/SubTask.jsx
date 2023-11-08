@@ -2,12 +2,25 @@
 import { useState } from "react";
 import Checkbox from "../ui/Checkbox/Checkbox";
 import styles from "./subtask.module.scss";
-// import ModalItem from "../ui/ModalItem/ModalItem"
+import ModalEdit from "../ModalEdit/ModalEdit";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const SubTask = ({ task, deleteTask, mainTaskId, isModer, setIsModer, onClick }) => {
+const SubTask = ({ task, deleteTask, mainTaskId, isModer, onClick }) => {
   const [checked, setChecked] = useState(false);
+  const [titleSubTask, setTitleSubTask] = useState(task.title);
+  const [isOpenEditModal, setIsOpenEditModal] = useState(false);
+  const inputsSubTask = [
+    {
+      id: 1,
+      placeholder: "Введите название подзадачи",
+      type: "text",
+      value: titleSubTask,
+      onChange: setTitleSubTask,
+      label: "Название подзадачи",
+    },
+  ];
+
   const change = () => {
     setChecked(!checked);
     deleteTask(mainTaskId, task.title);
@@ -21,12 +34,11 @@ const SubTask = ({ task, deleteTask, mainTaskId, isModer, setIsModer, onClick })
   };
   return (
     <>
-      <div key={Math.random()} className={styles.sub_task}>
+      <div onClick={() => setIsOpenEditModal(true)} key={Math.random()} className={styles.sub_task}>
         <span>{task.title}</span>
         <div className={styles.state}>
           {isModer ? (
             <div>
-              {/* <span>Редактировать</span> */}
               <img
                 style={{ width: "20px", height: "20px", cursor: 'pointer' }}
                 src="/icons/add.png"
@@ -46,6 +58,7 @@ const SubTask = ({ task, deleteTask, mainTaskId, isModer, setIsModer, onClick })
           )}
         </div>
       </div>
+      <ModalEdit subTask task={task} isOpenEditModal={isOpenEditModal} setIsOpenEditModal={setIsOpenEditModal} inputs={inputsSubTask} />
     </>
   );
 };

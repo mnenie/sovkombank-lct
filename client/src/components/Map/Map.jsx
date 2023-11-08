@@ -8,11 +8,11 @@ import "mapbox-gl-controls/lib/controls.css";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiYXlhYW56YXZlcmkiLCJhIjoiY2ttZHVwazJvMm95YzJvcXM3ZTdta21rZSJ9.WMpQsXd5ur2gP8kFjpBo8g";
 
-export default function App() {
+export default function Map(coordinates) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-122.39636);
-  const [lat, setLat] = useState(37.79129);
+  const [lng, setLng] = useState(38.976);
+  const [lat, setLat] = useState(45.0448);
   const [zoom, setZoom] = useState(12);
 
   function displayRouteOnMap(routeData) {
@@ -41,13 +41,7 @@ export default function App() {
         'line-width':5
       }
     });
-    const startMarker = new mapboxgl.Marker({ color: 'green' })
-    .setLngLat(coordinates[0])
-    .addTo(map.current);
 
-  const endMarker = new mapboxgl.Marker({ color: 'red' })
-    .setLngLat(coordinates[coordinates.length - 1])
-    .addTo(map.current);
   }
 
 

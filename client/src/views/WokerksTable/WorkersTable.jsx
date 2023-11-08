@@ -16,7 +16,7 @@ const WorkersTable = () => {
   } = useForm({
     mode: "onBlur",
   });
-  const [filterName, setFilterName] = useState("ana sidi");
+  const [filterName, setFilterName] = useState("");
   const [loginFilter, setLoginFilter] = useState("");
   const [radioValue, setRadioValue] = useState(0);
 
