@@ -2,16 +2,3 @@
 @import "./colors.scss";
 @import "./consts.scss";
 @import "./media.scss";
-.app-container{
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-}
-
-.cross{
-  // // position: absolute;
-  // width: 20px;
-  // height: 20px;
-  // top: 20px;
-  // right: 20px;
-}

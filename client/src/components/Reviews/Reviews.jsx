@@ -4,8 +4,17 @@ import Input from "../ui/Input/Input";
 import Button from "../ui/Button/Button";
 import TextArea from "../ui/TextArea/TextArea";
 import Radio from "../ui/Radio/Radio";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 const Reviews = ({radios, value2, changeValue}) => {
   const [login, setLogin] = useState("");
+  const clickRewiews = () => {
+    withReactContent(Swal).fire({
+      title: "Отзыв отправлен",
+      text: "Нажмите на кнопку, чтобы продолжить",
+      icon: "success",
+    });
+  };
   return (
     <div className={styles.form_block}>
       <h1>Отзывы о сотруднике</h1>
@@ -27,7 +36,7 @@ const Reviews = ({radios, value2, changeValue}) => {
           ))}
         </div>
       </div>
-      <Button>Отправить отзыв</Button>
+      <Button onClick={clickRewiews}>Отправить отзыв</Button>
     </div>
   );
 };
