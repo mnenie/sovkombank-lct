@@ -9,6 +9,14 @@ export default class TaskService{
         }catch(e){
             console.log(e);
         }
-        
+    }
+
+    static async getAllTasks(){
+        try{
+            const response = await $API.get('/all-tasks-schedule');
+            return response.data;
+        }catch(e){
+            console.log(e);
+        }
     }
 }

@@ -5,7 +5,7 @@ const WatchTasks = () => {
   const [tasks, setTasks] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
-    TaskService.getUserTasks(user.id).then((tasks) => {
+    TaskService.getAllTasks().then((tasks) => {
       setTasks(tasks);
     });
   }, []);
