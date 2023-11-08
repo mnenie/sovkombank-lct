@@ -6,7 +6,7 @@ import styles from "./subtask.module.scss";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const SubTask = ({ task, deleteTask, mainTaskId }) => {
+const SubTask = ({ task, deleteTask, mainTaskId, isModer, setIsModer }) => {
   const [checked, setChecked] = useState(false);
   const change = () => {
     setChecked(!checked);
@@ -24,14 +24,25 @@ const SubTask = ({ task, deleteTask, mainTaskId }) => {
       <div key={Math.random()} className={styles.sub_task}>
         <span>{task.title}</span>
         <div className={styles.state}>
-          <div className={styles.checkbox_items}>
-            <span>Отметить как выполненное</span>
-            <Checkbox
-              clickCheckbox={clickCheckbox}
-              checked={checked}
-              setChecked={change}
-            />
-          </div>
+          {isModer ? (
+            <div>
+              {/* <span>Редактировать</span> */}
+              <img
+                style={{ width: "20px", height: "20px", cursor: 'pointer' }}
+                src="/icons/add.png"
+                alt=""
+              />
+            </div>
+          ) : (
+            <div className={styles.checkbox_items}>
+              <span>Отметить как выполненное</span>
+              <Checkbox
+                clickCheckbox={clickCheckbox}
+                checked={checked}
+                setChecked={change}
+              />
+            </div>
+          )}
         </div>
       </div>
     </>

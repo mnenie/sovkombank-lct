@@ -73,3 +73,17 @@
   transform: translateX(150px);
   transition: opacity 350ms ease-in, transform 350ms ease-in;
 }
+
+.add_sub_task{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  // box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.05);
+  border-radius: 5px;
+  & img{
+    display: block;
+    margin: 0 auto;
+    transform: rotate(45deg);
+  }
+}

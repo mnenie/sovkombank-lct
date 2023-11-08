@@ -1,14 +1,19 @@
 .form {
   padding-top: 60px;
-  display: block;
-  margin: 0 auto;
-  max-width: 800px;
+  &_blocks{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    // align-items: stretch;
+  }
   .form_block {
     width: 100%;
     box-shadow: 0 2px 15px 0 rgba(52, 82, 112, 0.09);
     border-radius: 5px;
     padding: 40px;
     margin-bottom: 80px;
+    max-width: 500px;
+    width: 100%;
     & h1 {
       margin: 0;
       margin-bottom: 40px;

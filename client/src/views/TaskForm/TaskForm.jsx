@@ -8,6 +8,7 @@ import {
   TASK_NAMES,
   TASK_PRIORITY,
 } from "../../utils/consts";
+import WatchTasks from "../../components/WatchTasks/WatchTasks";
 const TaskForm = () => {
   const [tasks, setTasks] = useState([]);
   const [selectedValues, setSelectedValues] = useState({});
@@ -26,7 +27,7 @@ const TaskForm = () => {
       key,
       value: selectedValues[key].value,
     }));
-    const a = [...tasks, newTask]
+    const a = [...tasks, newTask];
     setTasks(a);
     console.log(newTask);
     console.log(a);
@@ -41,24 +42,27 @@ const TaskForm = () => {
   return (
     <div className={styles.form}>
       <div className="container">
-        <div className={styles.form_block}>
-          <h1>Создание задачи</h1>
-          <div className={styles.inputs}>
-            {options.map((opt, index) => (
-              <React.Fragment key={index}>
-                <label>{opt[0]}</label>
-                <Select
-                  isMulti={multiSelect.includes(opt[0])}
-                  isClearable={true}
-                  options={opt[1]}
-                  onChange={(selectedOption) =>
-                    selectChange(index, selectedOption)
-                  }
-                />
-              </React.Fragment>
-            ))}
-            <Button onClick={createTask}>Создать</Button>
+        <div className={styles.form_blocks}>
+          <div className={styles.form_block}>
+            <h1>Создание задачи</h1>
+            <div className={styles.inputs}>
+              {options.map((opt, index) => (
+                <React.Fragment key={index}>
+                  <label>{opt[0]}</label>
+                  <Select
+                    isMulti={multiSelect.includes(opt[0])}
+                    isClearable={true}
+                    options={opt[1]}
+                    onChange={(selectedOption) =>
+                      selectChange(index, selectedOption)
+                    }
+                  />
+                </React.Fragment>
+              ))}
+              <Button onClick={createTask}>Создать</Button>
+            </div>
           </div>
+          <WatchTasks/>
         </div>
       </div>
     </div>
