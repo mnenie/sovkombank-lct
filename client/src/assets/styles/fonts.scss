@@ -25,22 +25,25 @@ a{
   }
 }
 @media screen and (max-width: 650px){
+  h1{
+    font-size: 28px;
+  }
   p{
     font-size: 12px;
   }
 }
 @media screen and (max-width: 440px){
   h1{
-    font-size: 28px;
+    font-size: 26px;
   }
 }
 @media screen and (max-width: 370px){
   h1{
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 @media screen and (max-width: 352px){
   h1{
-    font-size: 24px;
+    font-size: 18px;
   }
 }
