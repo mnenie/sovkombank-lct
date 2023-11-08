@@ -23,4 +23,14 @@
   .td{
     font-size: 12px;
   }
+  th{
+    &:first-child{
+      width: 30px !important;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .td{
+    font-size: 10px;
+  }
 }

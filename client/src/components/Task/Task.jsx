@@ -1,7 +1,6 @@
 import styles from "../HomeTasks/HomeTasks.module.scss";
 import SubTask from "../SubTask/SubTask";
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import ModalTask from "../ModalTask/ModalTask";
 import ModalEdit from "../ModalEdit/ModalEdit";
 import ModalAdd from "../ModalAdd/ModalAdd";
@@ -102,7 +101,6 @@ const Task = ({ task, deleteTask, isModer }) => {
                 mainTaskId={task.task.id}
                 deleteTask={deleteTask}
                 isModer={isModer}
-                onClick={openEditSubTask}
               />
             ))}
             <div
