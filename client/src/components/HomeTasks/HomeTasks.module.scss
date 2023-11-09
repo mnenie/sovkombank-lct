@@ -87,3 +87,27 @@
     transform: rotate(45deg);
   }
 }
+@media screen and (max-width: 650px) {
+  .tasks{
+    box-shadow: unset;
+    .task{
+      .text{
+        // border: 1px solid var(--border-color);
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+@media screen and (max-width: 420px) {
+  .tasks{
+    .task{
+      .text{
+        // border: 1px solid var(--border-color);
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+}

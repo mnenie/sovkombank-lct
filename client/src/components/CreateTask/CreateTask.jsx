@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 import styles from '@/views/TaskForm/taskform.module.scss'
 import Button from "@/components/ui/Button/Button";
-const CreateTask = ({options, multiSelect, onChange, createTask}) => {
+const CreateTask = ({options, multiSelect, selectChange, selectedOption, createTask}) => {
   return (
     <div className={styles.form_block}>
       <div className={styles.form_block_1}>

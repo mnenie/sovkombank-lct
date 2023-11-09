@@ -29,7 +29,7 @@ const TaskForm = () => {
     <div className={styles.form}>
       <div className="container">
         <div className={styles.form_blocks}>
-          <CreateTask options={options} multiSelect={multiSelect} createTask={createTask} onChange={selectChange} />
+          <CreateTask options={options} multiSelect={multiSelect} createTask={createTask} selectChange={selectChange} selectedOption={selectedValues} />
           <WatchTasks />
         </div>
       </div>
