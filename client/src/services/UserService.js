@@ -6,4 +6,8 @@ export default class UserService{
             login, password
         })
     }
+
+    static async getAll(){
+        return await $API.get("/users");
+    }
 }

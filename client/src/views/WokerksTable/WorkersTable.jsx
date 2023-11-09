@@ -1,12 +1,42 @@
 import styles from "./table.module.scss";
 import { EMPLOYEE_GRADE } from "@/utils/consts";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import TableBlock from "@/components/TableBlock/TableBlock";
 import Reviews from "@/components/Reviews/Reviews";
 import Search from "@/components/Search/Search";
+import UserService from "../../services/UserService";
+
+function toCapitalized(str){
+  return str.charAt(0).toUpperCase() + str.toLowerCase().slice(1)
+}
+
 const WorkersTable = () => {
   const [filterName, setFilterName] = useState("");
   const [loginFilter, setLoginFilter] = useState("");
+  const [gradeFilter, setGradeFilter] = useState(null);
+
+  const [workers, setWorkers] = useState([]);
+
+  useEffect(() => {
+    UserService.getAll().then(resp => setWorkers(resp.data));
+  },[])
+
+  function filter(){
+    UserService.getAll().then(resp => {
+      let data = resp.data;
+      if (filterName){
+        data = data.filter(x => x.user_name.toLowerCase().includes(filterName.toLowerCase()));
+      }
+      if (loginFilter){
+        data = data.filter(x => x.login.toLowerCase().includes(loginFilter.toLowerCase()));
+      }
+      if (gradeFilter){
+        data = data.filter(x => x.level_name === gradeFilter.value );
+      }
+      setWorkers(data);
+    });
+  }
+
   const inputs = [
     {
       id: 1,
@@ -27,32 +57,7 @@ const WorkersTable = () => {
       label: "Логин",
     },
   ];
-  const workers = [
-    {
-      id: 1,
-      name: "Ivan",
-      login: "fdmkalsv",
-      grade: "Middle",
-    },
-    {
-      id: 1,
-      name: "Ivan",
-      login: "bibz",
-      grade: "senior",
-    },
-    {
-      id: 1,
-      name: "Ivan",
-      login: "fdmkalsv",
-      grade: "Middle",
-    },
-    {
-      id: 1,
-      name: "Ivan",
-      login: "fdmkalsv",
-      grade: "Middle",
-    },
-  ];
+
   const gradeOptions = EMPLOYEE_GRADE.map((x) => ({ value: x, label: x }));
   return (
     <>
@@ -60,7 +65,7 @@ const WorkersTable = () => {
         <div className="container">
           <div className={styles.blocks}>
             <div className={styles.blocks_1}>
-              <Search inputs={inputs} options={gradeOptions} />
+              <Search inputs={inputs} options={gradeOptions} filter={filter} selectState={[gradeFilter, setGradeFilter]}/>
               <Reviews />
             </div>
             <TableBlock workers={workers} />

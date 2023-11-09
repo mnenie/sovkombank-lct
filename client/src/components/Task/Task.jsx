@@ -16,6 +16,9 @@ const Task = ({ task, deleteTask, isModer }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [isOpenAddModal, setIsOpenAddModal] = useState(false);
+  const openEditTask = () => {
+    setIsOpenEditModal(true);
+  };
   const [title, setTitle] = useState(task.task.title);
   const [titleSubTaskAdd, setTitleSubTaskAdd] = useState('');
   const [taskName, setTaskName] = useState(task.tolmut.name);
@@ -25,17 +28,9 @@ const Task = ({ task, deleteTask, isModer }) => {
   const [data, setData] = useState(
     `${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()}`
   );
-
-
-  const openEditTask = () => {
-    setIsOpenEditModal(true);
-  };
-  
-
   const addSubTask = () => {
     setIsOpenAddModal(true);
   };
-
   const inputsTask = [
     {
       id: 1,
@@ -142,7 +137,7 @@ const Task = ({ task, deleteTask, isModer }) => {
           <ModalAdd inputs={inputsSubTaskAdd} task={task} isOpenAddModal={isOpenAddModal} setIsOpenAddModal={setIsOpenAddModal} />
         </div>
       ) : (
-        <ModalTask task={task} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
+      <ModalTask task={task} isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
       )}
     </>
   );

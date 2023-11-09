@@ -3,14 +3,15 @@ import styles from "@/views/WokerksTable/table.module.scss";
 import Input from '@/components/ui/Input/Input'
 import Button from '@/components/ui/Button/Button'
 import Select from 'react-select'
-const Search = ({inputs, options}) => {
+const Search = ({inputs, options, filter, selectState}) => {
+  
   const {
     register,
-    // handleSubmit,
     formState: { errors },
   } = useForm({
     mode: "onBlur",
   });
+
   return (
     <div className={styles.form_block}>
       <div className={styles.form_block_1}>
@@ -25,7 +26,6 @@ const Search = ({inputs, options}) => {
                 value={input.value}
                 onChange={input.onChange}
                 register={register(input.title, {
-                  // required: "Обязательное поле",
                   ...(input.title === "name" && {
                     pattern: {
                       value: /^[А-Яа-яA-Za-z ]+$/,
@@ -44,10 +44,10 @@ const Search = ({inputs, options}) => {
         </div>
         <div className={styles.select}>
           <label>Грейд</label>
-          <Select options={options} />
+          <Select defaultValue={selectState[0]} onChange={selectState[1]} isClearable options={options} />
         </div>
       </div>
-      <Button style={{ marginTop: "50px" }}>
+      <Button onClick={filter} style={{ marginTop: "50px" }}>
         Фильтровать
       </Button>
     </div>

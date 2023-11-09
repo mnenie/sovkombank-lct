@@ -8,8 +8,9 @@ const TableBlock = ({workers}) => {
         <thead>
           <tr>
             <th style={{ width: "60px" }}>ID</th>
-            <th>Имя</th>
             <th>Логин</th>
+            <th>ФИО</th>
+            <th>Профессия</th>
             <th>Грейд</th>
           </tr>
         </thead>
