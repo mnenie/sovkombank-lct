@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import axios from "axios";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { RulerControl, ImageControl } from "mapbox-gl-controls";
+import { ImageControl } from "mapbox-gl-controls";
 import "mapbox-gl-controls/lib/controls.css";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;

@@ -16,18 +16,26 @@ const Task = ({ task, deleteTask, isModer }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [isOpenAddModal, setIsOpenAddModal] = useState(false);
-  const date = new Date(task.date * 1000);
   const [title, setTitle] = useState(task.task.title);
   const [titleSubTaskAdd, setTitleSubTaskAdd] = useState('');
   const [taskName, setTaskName] = useState(task.tolmut.name);
+  
+  const date = new Date(task.date * 1000);
+  
   const [data, setData] = useState(
     `${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()}`
   );
 
+
+  const openEditTask = () => {
+    setIsOpenEditModal(true);
+  };
+  
+
   const addSubTask = () => {
     setIsOpenAddModal(true);
   };
-  
+
   const inputsTask = [
     {
       id: 1,
@@ -54,7 +62,6 @@ const Task = ({ task, deleteTask, isModer }) => {
       label: "Дата",
     },
   ];
-
   const inputsSubTaskAdd = [
     {
       id: 1,
@@ -65,6 +72,7 @@ const Task = ({ task, deleteTask, isModer }) => {
       label: "Название подзадачи",
     },
   ];
+
   return (
     <>
       <div className={styles.task}>
