@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { EMPLOYEE_GRADE, TASK_NAMES } from "../../utils/consts";
 import WatchTasks from "@/components/WatchTasks/WatchTasks";
 import CreateTask from "@/components/CreateTask/CreateTask";
+import ArrowBack from "../../components/ui/ArrowBack/ArrowBack";
 const TaskForm = () => {
   const [tasks, setTasks] = useState([]);
   const [selectedValues, setSelectedValues] = useState({});
@@ -28,6 +29,7 @@ const TaskForm = () => {
   return (
     <div className={styles.form}>
       <div className="container">
+        <ArrowBack />
         <div className={styles.form_blocks}>
           <CreateTask options={options} multiSelect={multiSelect} createTask={createTask} selectChange={selectChange} selectedOption={selectedValues} />
           <WatchTasks />

@@ -37,3 +37,13 @@
     }
   }
 }
+@media screen and (max-width: 370px) {
+  .input_form{
+    .input{
+      font-size: 12px;
+      &::placeholder{
+        font-size: 12px;
+      }
+    }
+  }
+}

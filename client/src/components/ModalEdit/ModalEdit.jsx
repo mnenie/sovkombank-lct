@@ -1,11 +1,14 @@
 import { useState } from "react";
 import Input from "../ui/Input/Input";
 import ModalItem from "../ui/ModalItem/ModalItem";
+import styles from '../ui/ModalItem/modal.module.scss'
 const ModalEdit = ({ isOpenEditModal, setIsOpenEditModal, task, inputs, subTask }) => {
-  const [width, setWidth] = useState(800);
+  const [width, setWidth] = useState(100);
+  const [maxWidth, setMaxWidth] = useState(800);
   return (
     <ModalItem
       width={width}
+      maxWidth={maxWidth}
       isOpen={isOpenEditModal}
       setIsOpen={setIsOpenEditModal}
     >
@@ -22,13 +25,7 @@ const ModalEdit = ({ isOpenEditModal, setIsOpenEditModal, task, inputs, subTask 
           />
         ))}
         <div
-          style={{
-            marginTop: "70px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-          className="bottom"
+          className={styles.bottom}
         >
           {!subTask ? <span>Исполнитель: {task["user-courier-info"].name}</span> : <></>}
           <span onClick={() => setIsOpenEditModal(false)} style={{color: 'var(--blue-color)'}}>Подтведить изменения</span>

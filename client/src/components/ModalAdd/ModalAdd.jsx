@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Input from "../ui/Input/Input";
 import ModalItem from "../ui/ModalItem/ModalItem";
+import styles from '../ui/ModalItem/modal.module.scss'
 const ModalAdd = ({ isOpenAddModal, setIsOpenAddModal, task, inputs }) => {
-  const [width, setWidth] = useState(800);
+  const [width, setWidth] = useState(100);
+  const [maxWidth, setMaxWidth] = useState(800);
   return (
     <ModalItem
+      maxWidth={maxWidth}
       width={width}
       isOpen={isOpenAddModal}
       setIsOpen={setIsOpenAddModal}
@@ -22,16 +25,15 @@ const ModalAdd = ({ isOpenAddModal, setIsOpenAddModal, task, inputs }) => {
           />
         ))}
         <div
-          style={{
-            marginTop: "70px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-          className="bottom"
+          className={styles.bottom}
         >
           <span>Исполнитель: {task["user-courier-info"].name}</span>
-          <span onClick={() => setIsOpenAddModal(false)} style={{color: 'var(--blue-color)'}}>Добавить</span>
+          <span
+            onClick={() => setIsOpenAddModal(false)}
+            style={{ color: "var(--blue-color)" }}
+          >
+            Добавить
+          </span>
         </div>
       </div>
     </ModalItem>

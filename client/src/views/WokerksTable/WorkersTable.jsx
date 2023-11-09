@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import TableBlock from "@/components/TableBlock/TableBlock";
 import Reviews from "@/components/Reviews/Reviews";
 import Search from "@/components/Search/Search";
-import UserService from "../../services/UserService";
+import UserService from "@/services/UserService";
+import ArrowBack from "@/components/ui/ArrowBack/ArrowBack";
 
 function toCapitalized(str) {
   return str.charAt(0).toUpperCase() + str.toLowerCase().slice(1);
@@ -29,13 +30,18 @@ const WorkersTable = () => {
       );
       setWorkers(workers);
     });
-    const a = workers;
-    console.log(a);
   }, []);
 
   function filter() {
     UserService.getAll().then((resp) => {
-      let data = resp.data;
+      let data = resp.data.map(
+        ({ login, user_name, role_name, level_name }) => ({
+          login,
+          user_name,
+          role_name,
+          level_name,
+        })
+      );
       if (filterName) {
         data = data.filter((x) =>
           x.user_name.toLowerCase().includes(filterName.toLowerCase())
@@ -79,6 +85,7 @@ const WorkersTable = () => {
     <>
       <div className={styles.form}>
         <div className="container">
+          <ArrowBack />
           <div className={styles.blocks}>
             <div className={styles.blocks_1}>
               <Search

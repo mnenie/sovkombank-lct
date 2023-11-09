@@ -1,0 +1,11 @@
+.arrow_back{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--blue-color);
+  margin-bottom: 50px;
+  cursor: pointer;
+  & img{
+    transform: rotate(90deg);
+  }
+}

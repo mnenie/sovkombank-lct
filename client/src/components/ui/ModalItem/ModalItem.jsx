@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 
-const ModalItem = ({ isOpen, setIsOpen, children, width }) => {
+const ModalItem = ({ isOpen, setIsOpen, children, width, maxWidth }) => {
   const customStyles = {
     content: {
       top: "40%",
@@ -11,7 +11,8 @@ const ModalItem = ({ isOpen, setIsOpen, children, width }) => {
       transform: "translate(-50%, -40%)",
       borderRadius: "5px",
       padding: "40px",
-      width: `${width}px`,
+      width: `${width}%`,
+      maxWidth: `${maxWidth}px`,
     },
   };
   function closeModal() {
