@@ -5,6 +5,7 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+    margin-bottom: 80px;
     gap: 10px;
     .block_1{
       max-width: 800px;
@@ -16,6 +17,7 @@
   .home{
     .blocks{
       flex-direction: column;
+      gap: 30px;
       .block_1{
         max-width: 100%;
       }

@@ -27,3 +27,16 @@
     }
   }
 }
+@media screen and (max-width: 580px){
+  .sub_task{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 420px){
+  .sub_task{
+    align-items: center;
+    text-align: center;
+  }
+}
