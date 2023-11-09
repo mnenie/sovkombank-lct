@@ -11,5 +11,4 @@ const Row = ({data}) => {
       );
 };
 
-
 export default Row;

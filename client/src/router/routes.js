@@ -1,6 +1,7 @@
 import {HOME_ROUTE, TASK_ROUTE, TABLE_ROUTE} from "../utils/consts";
 import Auth from "../views/Auth/Auth";
 import Home from "../views/Home/Home";
+import ManagerPanel from "../views/ManagerPanel/ManagerPanel";
 import NotFound from "../views/NotFound/NotFound";
 import TaskForm from "../views/TaskForm/TaskForm";
 import WorkersTable from "../views/WokerksTable/WorkersTable";
@@ -58,6 +59,10 @@ export const devRoutes = [
   {
     path: "/home",
     Component: Home
+  },
+  {
+    path: "/panel",
+    Component: ManagerPanel
   },
   {
     path: '*', 
