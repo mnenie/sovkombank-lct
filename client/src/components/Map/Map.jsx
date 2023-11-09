@@ -4,7 +4,7 @@ import axios from "axios";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { ImageControl } from "mapbox-gl-controls";
 import "mapbox-gl-controls/lib/controls.css";
-
+import "./marker.scss"
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 export default function Map({coordinates}) {
@@ -42,9 +42,18 @@ export default function Map({coordinates}) {
     });
 
 
-    for(let c of coordinates) {
-      new mapboxgl.Marker({ color: 'green' })
-      .setLngLat(c.split(',').map(x => parseFloat(x)))
+    for(let i =0; i < coordinates.length; i++) {
+      const el = document.createElement('div');
+      el.className = 'marker';
+      el.innerHTML = i+1;
+      new mapboxgl.Marker(el)
+      .setLngLat(coordinates[i].split(',').map(x => parseFloat(x)))
+      .setPopup(
+        new mapboxgl.Popup({ offset: 25 }) // add popups
+          .setHTML(
+            `<h3>${"Название задачи"}</h3><p>${"Описание"}</p>`
+          )
+      )
       .addTo(map.current);
     }      
     
@@ -77,7 +86,6 @@ export default function Map({coordinates}) {
     });
 
     map.current.on("load", handler);
-    map.current.addControl(new ImageControl(), "top-right");
 
   });
   return (
