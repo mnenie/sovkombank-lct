@@ -7,10 +7,10 @@ const TableBlock = ({workers}) => {
       <table className={styles.workers_table}>
         <thead>
           <tr>
-            <th style={{ width: "60px" }}>ID</th>
+            {/* <th style={{ width: "60px" }}>ID</th> */}
             <th>Логин</th>
             <th>ФИО</th>
-            <th>Профессия</th>
+            <th>Должность</th>
             <th>Грейд</th>
           </tr>
         </thead>

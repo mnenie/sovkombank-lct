@@ -55,3 +55,12 @@
     padding-top: 100px;
   }
 }
+@media screen and (max-width: 420px){
+  .form{
+    .form_block{
+      & h1{
+        text-align: center;
+      }
+    }
+  }
+}
