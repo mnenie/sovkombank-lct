@@ -58,8 +58,8 @@ const SubTask = ({ task, deleteTask, mainTaskId, isModer, onClick }) => {
           )}
         </div>
       </div>
-      <ModalEdit subTask task={task} isOpenEditModal={isOpenEditModal} setIsOpenEditModal={setIsOpenEditModal} inputs={inputsSubTask} />
-    </>
+      {isModer && <ModalEdit subTask task={task} isOpenEditModal={isOpenEditModal} setIsOpenEditModal={setIsOpenEditModal} inputs={inputsSubTask} /> }
+      </>
   );
 };
 
