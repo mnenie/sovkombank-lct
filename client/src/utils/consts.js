@@ -2,6 +2,7 @@ export const HOME_ROUTE = '/';
 export const ACCOUNT_ROUTE = '/account';
 export const TASK_ROUTE = '/task';
 export const TABLE_ROUTE = '/table';
+export const MANUL_ROUTE = '/manul'
 
 export const TASK_NAMES = ['Выезд на точку для стимулирования выдач', 'Обучение агента','Доставка карт и материалов'];
 export const EMPLOYEE_GRADE = ['Джун', 'Мидл', 'Синьор'];

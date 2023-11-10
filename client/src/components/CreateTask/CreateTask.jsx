@@ -13,7 +13,7 @@ const CreateTask = ({options, multiSelect, selectChange, selectedOption, createT
           <Input value={title} onChange={setTitle} placeholder={'Введите название'} label={'Название'} />
           {options.map((opt, index) => (
             <React.Fragment key={index}>
-              <label>{opt[0]}</label>
+              <label className={styles.label_1}>{opt[0]}</label>
               <Select
                 isMulti={multiSelect.includes(opt[0])}
                 isClearable={true}

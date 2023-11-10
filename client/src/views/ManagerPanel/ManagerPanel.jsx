@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
 import styles from "./manager_panel.module.scss";
-import { TABLE_ROUTE, TASK_ROUTE } from "../../utils/consts";
+import { MANUL_ROUTE, TABLE_ROUTE, TASK_ROUTE } from "../../utils/consts";
 
 const ManagerPanel = () => {
   const user = JSON.parse(localStorage.getItem("user"))
@@ -17,6 +17,11 @@ const ManagerPanel = () => {
       id: 2,
       title: 'Таблица сотрудников и отчетность',
       about: 'Просмотр таблицы сотрудников с функцианалом фильтрации, формирование отчета'
+    },
+    {
+      id: 3,
+      title: 'Редактирование справочников',
+      about: 'Возможность добавлять новых пользователей и добавлять адреса'
     }
   ]
   const navigate = useNavigate()
@@ -26,6 +31,9 @@ const ManagerPanel = () => {
     }
     else if(id === 2){
       navigate(TABLE_ROUTE)
+    }
+    else{
+      navigate(MANUL_ROUTE)
     }
   }
   return (
