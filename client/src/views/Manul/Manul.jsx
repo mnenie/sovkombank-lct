@@ -27,28 +27,30 @@ const Manul = () => {
           <div className={styles.block}>
             <div className={styles.block1}>
               <h1>Создать пользователя</h1>
-              <Input
-                value={name}
-                onChange={setName}
-                type={"text"}
-                placeholder={"Введите ФИО"}
-                label={"ФИО"}
-              />
-              {options.map((opt, index) => (
-                <React.Fragment key={index}>
-                  <label className={styles.label_1}>{opt[0]}</label>
-                  <Select
-                    isMulti={multiSelect.includes(opt[0])}
-                    isClearable={true}
-                    options={opt[1]}
-                    onChange={(selectedOption) =>
-                      selectChange(index, selectedOption)
-                    }
-                  />
-                </React.Fragment>
-              ))}
+              <div className={styles.inputs}>
+                <Input
+                  value={name}
+                  onChange={setName}
+                  type={"text"}
+                  placeholder={"Введите ФИО"}
+                  label={"ФИО"}
+                />
+                {options.map((opt, index) => (
+                  <React.Fragment key={index}>
+                    <label className={styles.label_1}>{opt[0]}</label>
+                    <Select
+                      isMulti={multiSelect.includes(opt[0])}
+                      isClearable={true}
+                      options={opt[1]}
+                      onChange={(selectedOption) =>
+                        selectChange(index, selectedOption)
+                      }
+                    />
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
-            <Button style={{ marginTop: "20px" }}>Создать</Button>
+            <Button style={{ marginTop: "30px" }}>Создать</Button>
           </div>
           <div className={styles.block}>
             <div className={styles.block1}>
@@ -61,7 +63,7 @@ const Manul = () => {
                 label={"Адрес"}
               />
             </div>
-            <Button style={{ marginTop: "20px" }}>Добавить</Button>
+            <Button style={{ marginTop: "30px" }}>Добавить</Button>
           </div>
         </div>
       </div>

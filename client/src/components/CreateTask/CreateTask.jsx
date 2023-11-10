@@ -26,7 +26,7 @@ const CreateTask = ({options, multiSelect, selectChange, selectedOption, createT
           ))}
         </div>
       </div>
-      <Button onClick={createTask}>Создать</Button>
+      <Button style={{marginTop: '40px'}} onClick={createTask}>Создать</Button>
     </div>
   );
 };
