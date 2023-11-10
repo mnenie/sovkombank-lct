@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import styles from '@/views/TaskForm/taskform.module.scss'
 import Button from "@/components/ui/Button/Button";
 import Input from "../ui/Input/Input";
 const CreateTask = ({options, multiSelect, selectChange, selectedOption, createTask}) => {
+  const [title, setTitle] = useState('')
   return (
     <div className={styles.form_block}>
       <div className={styles.form_block_1}>
         <h1>Создание задачи</h1>
         <div className={styles.inputs}>
-          <Input value={""} onChange placeholder={'Введите название'} />
+          <Input value={title} onChange={setTitle} placeholder={'Введите название'} label={'Название'} />
           {options.map((opt, index) => (
             <React.Fragment key={index}>
               <label>{opt[0]}</label>
