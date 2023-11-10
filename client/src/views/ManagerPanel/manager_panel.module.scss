@@ -52,7 +52,7 @@
     padding-top: 100px;
   }
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 962px) {
   .panel {
     &_items {
         align-items: center;
@@ -60,6 +60,7 @@
     }
     .blocks {
       flex-direction: column;
+      width: 100%;
     }
   }
 }

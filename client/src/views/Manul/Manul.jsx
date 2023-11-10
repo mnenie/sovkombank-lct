@@ -48,7 +48,7 @@ const Manul = () => {
                 </React.Fragment>
               ))}
             </div>
-            <Button style={{ marginTop: "30px" }}>Создать</Button>
+            <Button style={{ marginTop: "20px" }}>Создать</Button>
           </div>
           <div className={styles.block}>
             <div className={styles.block1}>
@@ -61,7 +61,7 @@ const Manul = () => {
                 label={"Адрес"}
               />
             </div>
-            <Button>Добавить</Button>
+            <Button style={{ marginTop: "20px" }}>Добавить</Button>
           </div>
         </div>
       </div>
