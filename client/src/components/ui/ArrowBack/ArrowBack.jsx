@@ -3,7 +3,7 @@ import styles from "./arrow.module.scss";
 const ArrowBack = () => {
   const navigate = useNavigate()
   const goToPanel = () =>{
-    navigate('/panel')
+    navigate('/')
   }
   return (
     <div onClick={goToPanel} className={styles.arrow_back}>
