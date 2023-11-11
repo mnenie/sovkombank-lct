@@ -1,11 +1,12 @@
-import {$API_GOSHA} from "../http";
+import { $API } from "../http";
 
 export default class AddressService{
     
     static async getAddresses(){
         try{
-            const response = await $API_GOSHA.get("/address/list", {params: {limit : 50, offset: 0}});
-            return response.data;
+            const response = await $API.get("/get-all-address-list", {params: {limit : 50, offset: 0}});
+            return {data: response.data};
+
         }catch(e){
             console.log(e);
         }

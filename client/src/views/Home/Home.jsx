@@ -22,11 +22,17 @@ const Home = () => {
     setLoading(false);
   }
 
+  // const getAddress = async (index) => {
+  //   const response = await AddressService.getAddresses()
+  //   // console.log(response.data[index].path);
+  // }
+
   useEffect(() => {
     const fetchData = async () => {
       const userTasks = await TaskService.getUserTasks(user.id);
       setTasks(userTasks);
       await getCoordinates(userTasks);
+      // await getAddress(res[0])
     };
 
     fetchData();
@@ -45,7 +51,6 @@ const Home = () => {
     setTasks([...newTasks]);
   };
 
-  
 
   return (
     <div className={styles.home}>

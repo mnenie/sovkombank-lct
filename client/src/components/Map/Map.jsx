@@ -9,9 +9,9 @@ mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 export default function Map({coordinates}) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(38.976);
-  const [lat, setLat] = useState(45.0448);
-  const [zoom, setZoom] = useState(12);
+  const [lng, setLng] = useState(39.038960);
+  const [lat, setLat] = useState(45.046999);
+  const [zoom, setZoom] = useState(11.6);
 
   function displayRouteOnMap(routeData) {
     const coords = routeData.routes[0].geometry.coordinates;
