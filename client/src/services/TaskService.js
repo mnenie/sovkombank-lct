@@ -1,4 +1,4 @@
-import $API from "../http";
+import {$API} from "../http";
 
 export default class TaskService{
     static async getUserTasks(id){

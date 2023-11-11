@@ -4,14 +4,28 @@ import Map from "@/components/Map/Map";
 import { useEffect, useState } from "react";
 import { cloneDeep } from "lodash";
 import TaskService from "../../services/TaskService";
+import AddressService from "../../services/AddressService";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
+  const [coords, setCoords] = useState(["38.976,45.0448","38.990,45.0450","38.992,45.04"]);
+  
   const user = JSON.parse(localStorage.getItem("user"));
+
+  const getCoordinates = async (tasks) => {
+    const res = []
+    for (let tk of tasks){
+      const coords = await AddressService.getCoordsByID(tk.task.address);
+      res.push(coords);
+    }
+    console.log(res)
+    setCoords(res);
+  }
 
   useEffect(() => {
     TaskService.getUserTasks(user.id).then((tasks) => {
       setTasks(tasks);
+      getCoordinates(tasks)
     });
   }, []);
 
@@ -27,6 +41,9 @@ const Home = () => {
     }
     setTasks([...newTasks]);
   };
+
+  
+
   return (
     <div className={styles.home}>
       <div className="container">
@@ -35,7 +52,7 @@ const Home = () => {
             <HomeTasks tasks={tasks} deleteTask={deleteTask} />
           </div>
           <div style={{ width: "100%", height: '400px' }}>
-            <Map coordinates={["38.976,45.0448","38.990,45.0450","38.992,45.04"]}/>
+            <Map coordinates={coords}/>
           </div>
         </div>
       </div>
