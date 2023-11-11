@@ -1,7 +1,5 @@
-import  { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import { unAuthRoutes, managerRoutes, courierRoutes, devRoutes } from "./routes";
-import {Context} from '../main'
+import { unAuthRoutes, managerRoutes, courierRoutes} from "./routes";
 
 const AppRouter = () => {
   let role = null;
@@ -11,12 +9,7 @@ const AppRouter = () => {
   return (
     <div>
       <Routes>  
-        {
-          devRoutes.map(({ path, Component }) => (
-            <Route path={path} element={<Component/>} key={path}/>
-          ))
-        }
-        {/* {!localStorage.getItem('isAuth') && unAuthRoutes.map(({ path, Component }) => (
+        {!localStorage.getItem('isAuth') && unAuthRoutes.map(({ path, Component }) => (
           <Route path={path} element={<Component/>} key={path} />
         ))}
          {role === "Выездной сотрудник" && courierRoutes.map(({ path, Component }) => (
@@ -24,7 +17,7 @@ const AppRouter = () => {
         ))}
         {role === "Менеджер" && managerRoutes.map(({ path, Component }) => (
           <Route path={path} element={<Component/>} key={path} />
-        ))} */}
+        ))}
       </Routes>
     </div>
   );
