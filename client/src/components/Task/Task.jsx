@@ -91,7 +91,7 @@ const Task = ({ task, deleteTask, isModer }) => {
                 alt=""
               />
               <div className={styles.line}></div>
-              <span>Построить маршрут</span>
+              {/* <span>Построить маршрут</span> */}
             </div>
           )}
         </div>

@@ -9,7 +9,7 @@ const $API = axios.create({
 });
 
 const $API_GOSHA = axios.create({
-    withCredentials:true,
+    withCredentials:false,
     baseURL: GOSHA_API,
 });
 

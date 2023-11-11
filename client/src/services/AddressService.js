@@ -5,7 +5,6 @@ export default class AddressService{
     static async getAddresses(){
         try{
             const response = await $API_GOSHA.get("/address/list", {params: {limit : 50, offset: 0}});
-            console.log(response.data);
             return response.data;
         }catch(e){
             console.log(e);
@@ -17,7 +16,7 @@ export default class AddressService{
         const data = await this.getAddresses();
         for (let dt of data.data){
             if (dt.id == id){
-                res = `${dt.latitude},${dt.longitude}`;
+                res = `${dt.longitude},${dt.latitude}`;
             }
         }
         return res; 

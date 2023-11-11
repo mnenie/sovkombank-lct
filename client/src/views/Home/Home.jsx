@@ -8,26 +8,29 @@ import AddressService from "../../services/AddressService";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
-  const [coords, setCoords] = useState(["38.976,45.0448","38.990,45.0450","38.992,45.04"]);
-  
+  const [coords, setCoords] = useState();
+  const [loading,setLoading] = useState(true);
   const user = JSON.parse(localStorage.getItem("user"));
 
   const getCoordinates = async (tasks) => {
     const res = []
     for (let tk of tasks){
-      const coords = await AddressService.getCoordsByID(tk.task.address);
+      const coords = await AddressService.getCoordsByID(tk.address.id);
       res.push(coords);
     }
-    console.log(res)
     setCoords(res);
+    setLoading(false);
   }
 
   useEffect(() => {
-    TaskService.getUserTasks(user.id).then((tasks) => {
-      setTasks(tasks);
-      getCoordinates(tasks)
-    });
-  }, []);
+    const fetchData = async () => {
+      const userTasks = await TaskService.getUserTasks(user.id);
+      setTasks(userTasks);
+      await getCoordinates(userTasks);
+    };
+
+    fetchData();
+  }, [user.id]);
 
   const deleteTask = (taskId, subtaskTitle) => {
     const newTasks = cloneDeep(tasks);
@@ -52,7 +55,7 @@ const Home = () => {
             <HomeTasks tasks={tasks} deleteTask={deleteTask} />
           </div>
           <div style={{ width: "100%", height: '400px' }}>
-            <Map coordinates={coords}/>
+            {!loading && <Map coordinates={coords}/>}
           </div>
         </div>
       </div>

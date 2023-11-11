@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import mapboxgl from "mapbox-gl"; 
 import axios from "axios";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "mapbox-gl-controls/lib/controls.css";
@@ -70,7 +70,7 @@ export default function Map({coordinates}) {
   }
 
   useEffect(() => {
-    if (map.current) return; 
+    if (map.current) {return;}
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
@@ -86,7 +86,7 @@ export default function Map({coordinates}) {
 
     map.current.on("load", handler);
 
-  });
+  },[coordinates]);
   return (
     <div>
       <div ref={mapContainer} style={{ width: "100%", height: "500px" }} />
